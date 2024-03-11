@@ -1,0 +1,75 @@
+/* Estilos para el cuerpo de la página */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+/* Estilos para el encabezado */
+header {
+    background-color: #f2f2f2;
+    padding: 20px 0;
+}
+
+/* Estilos para la barra de navegación */
+nav {
+    background-color: #ddd;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilos para los elementos de la lista de navegación */
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+/* Estilos para las secciones */
+section {
+    margin: 40px auto;
+    max-width: 800px;
+}
+
+/* Estilos para el acrónimo STEM */
+.stem-acronimo {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.stem-acronimo div {
+    flex: 1;
+}
+
+/* Estilos para los enlaces en la barra de navegación */
+.linkBarra {
+    color: #00b5d6;
+    text-decoration: none;
+    font-size: 20px;
+    display: inline-block;
+    padding: 15px 30px;
+}
+
+/* Estilos para el enlace Test */
+.linkTest {
+    color: #3a4972;
+    text-decoration: none;
+    font-size: 25px;
+    display: inline-block;
+    padding: 15px 50px;
+    background-color: #adb2c1;
+    border-radius: 5px;
+}
+
+/* Estilos para el espaciador */
+.spacer {
+    height: 30px;
+}
