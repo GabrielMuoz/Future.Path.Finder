@@ -1,8 +1,28 @@
 import React from 'react';
 import './TestPage.css'; 
+import { Link } from 'react-router-dom';
+
+const links=[
+    {
+        name: "Regresar al inicio",
+        href: "/"
+    },
+];
 
 function TestPage() {
   return (
+    <body>
+  <header>
+    <h1>Future Path Finder</h1>
+  </header>
+  <nav>
+    {links.map((y)=>(
+        <Link to={y.href} classname="linkBarra">{y.name}</Link>
+    ))}
+  </nav>
+  <h2 class="tituloTest">Test</h2>
+  <p class="cajaAdvertencia">recordatorio</p>
+
     <div className="recuadroPreguntas">
       <div className="container">
         <section id="p1">
@@ -34,6 +54,7 @@ function TestPage() {
         <button className="botonTerminar">Terminar</button>
       </div>
     </div>
+    </body>
   );
 }
 

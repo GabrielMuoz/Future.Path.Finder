@@ -5,11 +5,11 @@ import { Link } from 'react-router-dom';
 const links=[
     {
         name: "Carreras",
-        href: "/CarrerasPage"
+        href: "/carreras"
     },
     {
-        name: "TestPage",
-        href: "/TestPage"
+        name: "Test",
+        href: "/test"
     },
 ];
 
@@ -21,8 +21,8 @@ function HomePage() {
                 <h1>Future Path Finder</h1>
             </header>
             <nav>
-                {links.map(x=>(
-                    <Link to={x.href}></Link>
+                {links.map((x)=>(
+                    <Link to={x.href} classname="linkBarra">{x.name}</Link>
                 ))}
             </nav>
             <section className="spacer"></section>
@@ -52,7 +52,9 @@ function HomePage() {
 
             <section className="spacer"></section>
 
-            <a className="linkTest" href="https://www.youtube.com/"> Test </a>
+            <Link to="/test">
+                <button className="linkTest">Test</button>
+            </Link>
         </div>
     );
 }

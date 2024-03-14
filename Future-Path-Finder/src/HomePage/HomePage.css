@@ -20,17 +20,6 @@ nav {
     align-items: center;
 }
 
-/* Estilos para los elementos de la lista de navegación */
-nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-
-nav ul li {
-    display: inline;
-    margin-right: 20px;
-}
 
 /* Estilos para las secciones */
 section {
@@ -52,10 +41,9 @@ section {
 /* Estilos para los enlaces en la barra de navegación */
 .linkBarra {
     color: #00b5d6;
-    text-decoration: none;
-    font-size: 20px;
-    display: inline-block;
-    padding: 15px 30px;
+    text-decoration: none; /* Elimina el subrayado */
+    padding: 15px 30px; /* Ajusta el hit box */
+    margin-right: 20px; /* Ajusta la separación entre los enlaces */
 }
 
 /* Estilos para el enlace Test */
