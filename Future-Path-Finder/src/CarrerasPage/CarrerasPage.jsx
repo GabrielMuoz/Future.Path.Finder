@@ -17,45 +17,74 @@ function CarrerasPage() {
       </nav>
       <section>
         <div className="area-box">
-          <div className="area-title">Science</div>
+          <div className="area-title">Ciencia</div>
           <div className="area-description">
             <ul>
-              <li>Biology</li>
-              <li>Description: Study of living organisms.</li>
-              <li>Duration: 4 years</li>
+              <li>Biología</li>
+              <li>Química</li>
+              <li>Física</li>
+              <li>Astronomía</li>
+              <li>Geología</li>
+              <li>Oceanografía</li>
+              <li>Biomedicina</li>
+              <li>Ecología</li>
             </ul>
           </div>
         </div>
 
         <div className="area-box">
-          <div className="area-title">Technology</div>
+          <div className="area-title">Tecnología</div>
           <div className="area-description">
             <ul>
-              <li>Computer Science</li>
-              <li>Description: Study of algorithms, programming languages, and computer hardware.</li>
-              <li>Duration: 4 years</li>
+              <li>Ingeniería en Sistemas Computacionales</li>
+              <li>Ingeniería en Software</li>
+              <li>Ingeniería en Telecomunicaciones</li>
+              <li>Ingeniería en Redes y Servicios de Cómputo</li>
+              <li>Ingeniería en Ciberseguridad</li>
+              <li>Ingeniería en Computación</li>
+              <li>Ingeniería en Informática</li>
+              <li>Ingeniería en Robótica</li>
+              <li>Ingeniería en Electrónica</li>
+              <li>Ingeniería en Mecatrónica</li>
+              <li>Ingeniería en Automatización y Control</li>
             </ul>
           </div>
         </div>
 
         <div className="area-box">
-          <div className="area-title">Engineering</div>
+          <div className="area-title">Ingeniería</div>
           <div className="area-description">
             <ul>
-              <li>Mechanical Engineering</li>
-              <li>Description: Study of mechanical systems.</li>
-              <li>Duration: 4 years</li>
+              <li>Ingeniería Civil</li>
+              <li>Ingeniería Mecánica</li>
+              <li>Ingeniería Eléctrica</li>
+              <li>Ingeniería Aeroespacial</li>
+              <li>Ingeniería Biomédica</li>
+              <li>Ingeniería Ambiental</li>
+              <li>Ingeniería Geológica</li>
+              <li>Ingeniería Petrolera</li>
+              <li>Ingeniería en Energías Renovables</li>
+              <li>Ingeniería Agroalimentaria</li>
+              <li>Ingeniería en Materiales</li>
+              <li>Ingeniería Química</li>
+              <li>Ingeniería en Biotecnología</li>
+              <li>Ingeniería en Telecomunicaciones</li>
+              <li>Ingeniería en Electrónica y Telecomunicaciones</li>
+              <li>Ingeniería Industrial</li>
             </ul>
           </div>
         </div>
 
         <div className="area-box">
-          <div className="area-title">Math</div>
+          <div className="area-title">Matemáticas</div>
           <div className="area-description">
             <ul>
-              <li>Math</li>
-              <li>Description: Study of numbers, quantities, and shapes.</li>
-              <li>Duration: 4 years</li>
+              <li>Matemáticas Pura</li>
+              <li>Matemáticas Aplicadas</li>
+              <li>Estadística</li>
+              <li>Actuaría</li>
+              <li>Matemáticas Computacionales</li>
+              <li>Matemáticas Financieras</li>
             </ul>
           </div>
         </div>

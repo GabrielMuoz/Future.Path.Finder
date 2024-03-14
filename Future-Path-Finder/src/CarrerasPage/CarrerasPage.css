@@ -66,7 +66,7 @@ section {
 .area-box {
     display: inline-block;
     width: 200px;
-    border: 1px solid #ccc;
+    border: 1px solid #2c3e50; /* Azul oscuro */
     padding: 20px;
     margin: 20px;
     border-radius: 10px;
@@ -75,9 +75,11 @@ section {
 .area-title {
     font-weight: bold;
     font-size: 18px;
+    color: #2980b9; /* Azul brillante */
 }
 
 .area-description {
     font-size: 16px;
     margin-top: 10px;
+    color: #3498db; /* Azul claro */
 }
