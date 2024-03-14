@@ -1,7 +1,23 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './CarrerasPage.css'; // Importa los estilos CSS
+import axios from 'axios'; // Importa Axios para hacer solicitudes HTTP
 
 function CarrerasPage() {
+  const [carreras, setCarreras] = useState([]);
+
+  useEffect(() => {
+    const fetchCarreras = async () => {
+      try {
+        const response = await axios.get('/api/carreras');
+        setCarreras(response.data);
+      } catch (error) {
+        console.error('Error al obtener las carreras:', error);
+      }
+    };
+
+    fetchCarreras();
+  }, []);
+
   return (
     <div>
       <header>
@@ -16,77 +32,19 @@ function CarrerasPage() {
         </ul>
       </nav>
       <section>
-        <div className="area-box">
-          <div className="area-title">Ciencia</div>
-          <div className="area-description">
-            <ul>
-              <li>Biología</li>
-              <li>Química</li>
-              <li>Física</li>
-              <li>Astronomía</li>
-              <li>Geología</li>
-              <li>Oceanografía</li>
-              <li>Biomedicina</li>
-              <li>Ecología</li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="area-box">
-          <div className="area-title">Tecnología</div>
-          <div className="area-description">
-            <ul>
-              <li>Ingeniería en Sistemas Computacionales</li>
-              <li>Ingeniería en Software</li>
-              <li>Ingeniería en Telecomunicaciones</li>
-              <li>Ingeniería en Redes y Servicios de Cómputo</li>
-              <li>Ingeniería en Ciberseguridad</li>
-              <li>Ingeniería en Computación</li>
-              <li>Ingeniería en Informática</li>
-              <li>Ingeniería en Robótica</li>
-              <li>Ingeniería en Electrónica</li>
-              <li>Ingeniería en Mecatrónica</li>
-              <li>Ingeniería en Automatización y Control</li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="area-box">
-          <div className="area-title">Ingeniería</div>
-          <div className="area-description">
-            <ul>
-              <li>Ingeniería Civil</li>
-              <li>Ingeniería Mecánica</li>
-              <li>Ingeniería Eléctrica</li>
-              <li>Ingeniería Aeroespacial</li>
-              <li>Ingeniería Biomédica</li>
-              <li>Ingeniería Ambiental</li>
-              <li>Ingeniería Geológica</li>
-              <li>Ingeniería Petrolera</li>
-              <li>Ingeniería en Energías Renovables</li>
-              <li>Ingeniería Agroalimentaria</li>
-              <li>Ingeniería en Materiales</li>
-              <li>Ingeniería Química</li>
-              <li>Ingeniería en Biotecnología</li>
-              <li>Ingeniería en Telecomunicaciones</li>
-              <li>Ingeniería en Electrónica y Telecomunicaciones</li>
-              <li>Ingeniería Industrial</li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="area-box">
-          <div className="area-title">Matemáticas</div>
-          <div className="area-description">
-            <ul>
-              <li>Matemáticas Pura</li>
-              <li>Matemáticas Aplicadas</li>
-              <li>Estadística</li>
-              <li>Actuaría</li>
-              <li>Matemáticas Computacionales</li>
-              <li>Matemáticas Financieras</li>
-            </ul>
-          </div>
+        <div className="area-container">
+          {carreras.map(carrera => (
+            <div key={carrera._id} className="area-box">
+              <div className="area-title">{carrera.area}</div>
+              <div className="area-description">
+                <ul>
+                  <li><strong>Área:</strong> {carrera.area}</li>
+                  <li><strong>Nombre de Carrera:</strong> {carrera.nombre}</li>
+                  <li><strong>Duración:</strong> {carrera.duracion}</li>
+                </ul>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
       <footer>
