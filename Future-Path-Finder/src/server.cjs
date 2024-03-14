@@ -1,9 +1,9 @@
-// server.js
+// server.cjs
 const express = require('express');
 const mongoose = require('mongoose');
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3000;
 
 // Conecta con la base de datos MongoDB
 mongoose.connect('mongodb+srv://root:Desarrollo@futurepathfindercluster.jutfoen.mongodb.net/', {
@@ -24,13 +24,18 @@ const carreraSchema = new mongoose.Schema({
 const Carrera = mongoose.model('Carrera', carreraSchema);
 
 // Ruta para obtener todas las carreras
-app.get('/api/carreras', async (req, res) => {
+app.get('/api/get-carreras', async (req, res) => {
   try {
     const carreras = await Carrera.find();
     res.json(carreras);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
+});
+
+// Ruta para la raíz del sitio
+app.get('/', (req, res) => {
+  res.send('¡Bienvenido a Future Path Finder!');
 });
 
 app.listen(PORT, () => {
