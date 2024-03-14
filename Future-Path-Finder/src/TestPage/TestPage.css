@@ -1,0 +1,87 @@
+.recuadroPreguntas {
+    background-color: #dbd3d3;
+    padding: 20px;
+    margin: 20px auto;
+    width: calc(100% - 40px); 
+    max-width: 700px;
+    text-align: center;
+    border-radius: 10px; 
+  }
+  
+  
+  section {
+    margin-bottom: 20px; 
+  }
+  
+  .container{
+      max-width: 700px;
+      margin: auto;
+      padding: 20px;
+  }
+   .centrarBoton {
+    text-align: center;
+  }
+  
+  header {
+    background-color: #f2f2f2;
+    padding: 20px 0;
+    text-align: center;
+  }
+  .tituloTest{
+      text-align: center;
+  }
+  .cajaAdvertencia{
+      text-align: center;
+  }
+  
+  nav {
+    background-color: #ddd;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav ul li {
+    display: inline;
+    margin-right: 20px;
+  }
+  
+  .linkBarra {
+    color: #00b5d6;
+    text-decoration: none;
+    font-size: 20px;
+    display: inline-block;
+    padding: 15px 30px;
+  }
+  
+  .linkTest {
+    color: #3a4972;
+    text-decoration: none;
+    font-size: 25px;
+    display: inline-block;
+    padding: 15px 50px;
+    background-color: #adb2c1;
+    border-radius: 5px;
+  }
+  
+  section label {
+    color: #00b5d6; 
+  }
+  
+  .botonTerminar {
+    background-color: #00b5d6; 
+    color: white; 
+    font-weight: bold; 
+    font-size: 20px; 
+    padding: 15px 30px; 
+    border: none; 
+    border-radius: 10px; 
+    cursor: pointer; 
+  }
