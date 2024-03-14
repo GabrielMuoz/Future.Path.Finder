@@ -6,7 +6,7 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Conecta con la base de datos MongoDB
-mongoose.connect('mongodb+srv://root:<password>@futurepathfindercluster.jutfoen.mongodb.net/', {
+mongoose.connect('mongodb+srv://root:Desarrollo@futurepathfindercluster.jutfoen.mongodb.net/', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })
