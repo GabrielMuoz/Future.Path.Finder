@@ -8,7 +8,7 @@ function CarrerasPage() {
   useEffect(() => {
     const fetchAreas = async () => {
       try {
-        const response = await axios.get('/api/carreras');
+        const response = await axios.get('http://localhost:3000/api/carreras');
         setAreas(response.data);
       } catch (error) {
         console.error('Error al obtener las áreas:', error);

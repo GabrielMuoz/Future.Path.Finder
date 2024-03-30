@@ -16,7 +16,7 @@ function TestPage() {
   useEffect(() => {
     const fetchPreguntas = async () => {
       try {
-        const response = await axios.get('/api/test');
+        const response = await axios.get('http://localhost:3000/api/test');
         console.log('Datos devueltos de la API:', response.data); 
         setPreguntas(response.data);
       } catch (error) {
