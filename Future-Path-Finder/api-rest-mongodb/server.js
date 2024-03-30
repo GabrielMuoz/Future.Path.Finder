@@ -1,47 +1,44 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors'); // Importa el paquete Cors para permitir solicitudes entre dominios
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Middleware para permitir solicitudes desde cualquier origen
+app.use(cors());
+
 // Conexión a la base de datos MongoDB
 mongoose.connect('mongodb+srv://root:Desarrollo@futurepathfindercluster.jutfoen.mongodb.net/fpf', {
   useNewUrlParser: true,
-  useUnifiedTopology: true
+  useUnifiedTopology: true,
+  dbName: 'fpf'
 })
 .then(() => console.log('Conexión exitosa a MongoDB'))
 .catch(err => console.error('Error al conectar a MongoDB:', err));
 
-// Definir el esquema y el modelo para tu colección de datos
-const Schema = mongoose.Schema;
-const dataSchema = new Schema({
-  // Define la estructura de tu documento de datos aquí
+// Define el esquema de las carreras
+const carreraSchema = new mongoose.Schema({
+  area: String,
+  carreras: [String] // Tipo de datos array de strings para carreras
 });
-const Data = mongoose.model('Data', dataSchema);
 
-// Ruta para obtener todos los documentos de la colección
-app.get('/api/data', async (req, res) => {
+// Define el modelo de Carrera
+const Carrera = mongoose.model('Carrera', carreraSchema);
+
+// Ruta para obtener todas las carreras
+app.get('/api/carreras', async (req, res) => {
   try {
-    const data = await Data.find();
-    res.json(data);
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: 'Error al obtener los datos' });
+    const carreras = await Carrera.find();
+    res.json(carreras);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
   }
 });
 
-// Ruta para obtener un documento por ID
-app.get('/api/data/:id', async (req, res) => {
-  try {
-    const data = await Data.findById(req.params.id);
-    if (!data) {
-      return res.status(404).json({ error: 'No se encontró el dato' });
-    }
-    res.json(data);
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: 'Error al obtener el dato' });
-  }
+// Ruta para la raíz del sitio
+app.get('/', (req, res) => {
+  res.send('¡Bienvenido a Future Path Finder!');
 });
 
 // Middleware para manejar errores
@@ -54,7 +51,3 @@ app.use((err, req, res, next) => {
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en el puerto ${PORT}`);
 });
-
-//nest
-//ui es cliente y servidor es backend
-//boosetrap, materi ui, next ui
