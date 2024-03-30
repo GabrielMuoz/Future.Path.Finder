@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './TestPage.css'; 
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 const links=[
     {
@@ -10,51 +11,53 @@ const links=[
 ];
 
 function TestPage() {
-  return (
-    <body>
-  <header>
-    <h1>Future Path Finder</h1>
-  </header>
-  <nav>
-    {links.map((y)=>(
-        <Link to={y.href} classname="linkBarra">{y.name}</Link>
-    ))}
-  </nav>
-  <h2 class="tituloTest">Test</h2>
-  <p class="cajaAdvertencia">recordatorio</p>
+  const [preguntas, setPreguntas] = useState([]);
 
-    <div className="recuadroPreguntas">
-      <div className="container">
-        <section id="p1">
-          <h3>primera pregunta?</h3>
-          <label>
-            <input type="radio" value="1" name="p0"/> respuesta 1
-          </label>
-          <label>
-            <input type="radio" value="2" name="p0"/> respuesta 2
-          </label>
-          <label>
-            <input type="radio" value="3" name="p0"/> respuesta 3
-          </label>
-        </section>
-        <section id="p2">
-          <h3>segunda pregunta?</h3>
-          <label>
-            <input type="radio" value="1" name="p1"/> respuesta 1
-          </label>
-          <label>
-            <input type="radio" value="2" name="p1"/> respuesta 2
-          </label>
-          <label>
-            <input type="radio" value="3" name="p1"/> respuesta 3
-          </label>
-        </section>
-      </div>
-      <div className="centrarBoton">
-        <button className="botonTerminar">Terminar</button>
+  useEffect(() => {
+    const fetchPreguntas = async () => {
+      try {
+        const response = await axios.get('/api/test');
+        console.log('Datos devueltos de la API:', response.data); 
+        setPreguntas(response.data);
+      } catch (error) {
+        console.error('Error al obtener las preguntas:', error);
+      }
+    };
+  
+    fetchPreguntas();
+  }, []);
+
+  return (
+    <div>
+      <header>
+        <h1>Future Path Finder</h1>
+      </header>
+      <nav>
+        {links.map((y, index) => (
+          <Link key={index} to={y.href} className="linkBarra">{y.name}</Link>
+        ))}
+      </nav>
+      <h2 className="tituloTest">Test</h2>
+      <p className="cajaAdvertencia">recordatorio</p>
+
+      <div className="recuadroPreguntas">
+        {Array.isArray(preguntas) ? preguntas.map((pregunta, index) => (
+          <div className="container" key={pregunta._id}>
+            <section id={`p${index}`}>
+              <h3>{pregunta.pregunta}</h3>
+              {pregunta.opciones.map((opcion, i) => (
+                <label key={i}>
+                  <input type="radio" value={opcion.texto} name={`p${index}`}/> {opcion.texto} {opcion.correcta ? '(correcta)' : ''}
+                </label>
+              ))}
+            </section>
+          </div>
+        )) : <p>No hay preguntas disponibles</p>}
+        <div className="centrarBoton">
+          <button className="botonTerminar">Terminar</button>
+        </div>
       </div>
     </div>
-    </body>
   );
 }
 

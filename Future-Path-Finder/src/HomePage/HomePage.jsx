@@ -2,7 +2,7 @@ import React from 'react';
 import './HomePage.css';
 import { Link } from 'react-router-dom';
 
-const links=[
+const links = [
     {
         name: "Carreras",
         href: "/carreras"
@@ -13,7 +13,6 @@ const links=[
     },
 ];
 
-
 function HomePage() {
     return (
         <div>
@@ -21,8 +20,8 @@ function HomePage() {
                 <h1>Future Path Finder</h1>
             </header>
             <nav>
-                {links.map((x)=>(
-                    <Link to={x.href} classname="linkBarra">{x.name}</Link>
+                {links.map((x) => (
+                    <Link to={x.href} className="linkBarra" key={x.name}>{x.name}</Link>
                 ))}
             </nav>
             <section className="spacer"></section>

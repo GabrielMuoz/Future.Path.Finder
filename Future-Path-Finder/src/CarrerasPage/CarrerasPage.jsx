@@ -32,12 +32,13 @@ function CarrerasPage() {
         </ul>
       </nav>
       <section>
-        {areas.map(area => (
+        {/* Verifica si areas es un array antes de usar map */}
+        {Array.isArray(areas) && areas.map(area => (
           <div key={area._id} className="area-box">
             <div className="area-title">{area.area}</div>
             <div className="area-description">
               <ul>
-                {area.carreras.map(carrera => (
+                {Array.isArray(area.carreras) && area.carreras.map(carrera => (
                   <li key={carrera}>{carrera}</li>
                 ))}
               </ul>
