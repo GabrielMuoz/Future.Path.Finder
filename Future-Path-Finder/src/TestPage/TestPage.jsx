@@ -47,7 +47,7 @@ function TestPage() {
               <h3>{pregunta.pregunta}</h3>
               {pregunta.opciones.map((opcion, i) => (
                 <label key={i}>
-                  <input type="radio" value={opcion.texto} name={`p${index}`}/> {opcion.texto} {opcion.correcta ? '(correcta)' : ''}
+                  <input type="radio" value={opcion.texto} name={`p${index}`}/> {opcion.texto} {opcion.correcta ? '' : ''}
                 </label>
               ))}
             </section>

@@ -1,6 +1,18 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import './CarrerasPage.css'; // Importa los estilos CSS
 import axios from 'axios'; // Importa Axios para hacer solicitudes HTTP
+
+const links = [
+  {
+      name: "Inicio",
+      href: "/"
+  },
+  {
+      name: "Test",
+      href: "/test"
+  },
+];
 
 function CarrerasPage() {
   const [areas, setAreas] = useState([]);
@@ -24,13 +36,10 @@ function CarrerasPage() {
         <h1>Future Path Finder</h1>
       </header>
       <nav>
-        <ul>
-          <li><a className="linkBarra" href="#">Inicio</a></li>
-        </ul>
-        <ul>
-          <li><a className="linkBarra" href="#">Test</a></li>
-        </ul>
-      </nav>
+                {links.map((x) => (
+                    <Link to={x.href} className="linkBarra" key={x.name}>{x.name}</Link>
+                ))}
+            </nav>
       <section>
         {/* Verifica si areas es un array antes de usar map */}
         {Array.isArray(areas) && areas.map(area => (
