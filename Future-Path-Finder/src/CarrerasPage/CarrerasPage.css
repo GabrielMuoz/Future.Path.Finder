@@ -25,7 +25,8 @@ section {
     max-width: 800px;
 }
 
-/* Estilos para el acrónimo STEM */
+/* Estilos existentes */
+
 .stem-acronimo {
     display: flex;
     justify-content: space-between;
@@ -36,15 +37,13 @@ section {
     flex: 1;
 }
 
-/* Estilos para los enlaces en la barra de navegación */
 .linkBarra {
     color: #00b5d6;
-    text-decoration: none; /* Elimina el subrayado */
-    padding: 15px 30px; /* Ajusta el hit box */
-    margin-right: 20px; /* Ajusta la separación entre los enlaces */
+    text-decoration: none;
+    padding: 15px 30px;
+    margin-right: 20px;
 }
 
-/* Estilos para el enlace Test */
 .linkTest {
     color: #3a4972;
     text-decoration: none;
@@ -55,24 +54,35 @@ section {
     border-radius: 5px;
 }
 
-/* Estilos para los cuadros */
 .area-box {
     display: inline-block;
     width: 200px;
-    border: 1px solid #2c3e50; /* Azul oscuro */
+    border: 1px solid #2c3e50;
     padding: 20px;
     margin: 20px;
     border-radius: 10px;
 }
 
-.area-title {
-    font-weight: bold;
-    font-size: 18px;
-    color: #2980b9; /* Azul brillante */
+/* Estilos para el selector de filtro */
+select {
+    padding: 10px 20px;
+    margin: 20px 0;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #00b5d6;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
 }
 
-.area-description {
-    font-size: 16px;
-    margin-top: 10px;
-    color: #3498db; /* Azul claro */
+select:hover {
+    background-color: #008fb3;
+    box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.2);
+}
+
+select:focus {
+    outline: none;
+    box-shadow: 0 0 10px #719ECE;
 }
