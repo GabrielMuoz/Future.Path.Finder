@@ -35,13 +35,13 @@ const preguntaSchema = new mongoose.Schema({
 });
 
 const carreraSchema = new mongoose.Schema({
-  // Define aquí los campos de tu documento de Carrera
+  // Define los campos de tu documento de Carrera
   nombre: String,
   // etc...
 });
 
 const Pregunta = mongoose.model('Pregunta', preguntaSchema, 'test');
-const Carrera = mongoose.model('Carrera', carreraSchema, 'carreras'); // Asegúrate de que 'carreras' es el nombre de tu colección en MongoDB
+const Carrera = mongoose.model('Carrera', carreraSchema, 'carreras'); 
 
 app.get('/api/carreras', async (req, res) => {
   try {
