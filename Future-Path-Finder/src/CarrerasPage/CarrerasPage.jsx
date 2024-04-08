@@ -14,8 +14,11 @@ const links = [
   },
 ];
 
+const opciones = ['Tecnología', 'Ciencia', 'Ingeniería', 'Matemáticas']; // Opciones para el filtro
+
 function CarrerasPage() {
   const [areas, setAreas] = useState([]);
+  const [filtro, setFiltro] = useState(''); // Nuevo estado para el filtro
 
   useEffect(() => {
     const fetchAreas = async () => {
@@ -36,13 +39,22 @@ function CarrerasPage() {
         <h1>Future Path Finder</h1>
       </header>
       <nav>
-                {links.map((x) => (
-                    <Link to={x.href} className="linkBarra" key={x.name}>{x.name}</Link>
-                ))}
-            </nav>
+        {links.map((link, index) => (
+          <Link key={index} to={link.href} className="linkBarra">{link.name}</Link>
+        ))}
+      </nav>
+      <select 
+        value={filtro} 
+        onChange={e => setFiltro(e.target.value)} 
+      > {/* Selector para el filtro */}
+        <option value="">Selecciona una opción</option>
+        {opciones.map(opcion => (
+          <option key={opcion} value={opcion}>{opcion}</option>
+        ))}
+      </select>
       <section>
-        {/* Verifica si areas es un array antes de usar map */}
-        {Array.isArray(areas) && areas.map(area => (
+        {/* Filtra las áreas basándote en el valor del filtro antes de mapearlas */}
+        {Array.isArray(areas) && areas.filter(area => area.area.includes(filtro)).map(area => (
           <div key={area._id} className="area-box">
             <div className="area-title">{area.area}</div>
             <div className="area-description">
