@@ -18,7 +18,6 @@ nav {
     align-items: center;
 }
 
-
 /* Estilos para las secciones */
 section {
     margin: 40px auto;
@@ -44,6 +43,57 @@ section {
     margin-right: 20px;
 }
 
+/* Estilos para el contenedor del filtro */
+.filter-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+    position: relative; /* Añade posición relativa para que el menú desplegable se posicione correctamente */
+}
+
+.filter-container h2 {
+    margin-bottom: 10px;
+}
+
+/* Estilos para el botón de menú */
+.menu-button {
+    font-size: 50px; /* Hace el botón más grande */
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* Estilos para el menú desplegable */
+.dropdown-menu {
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    position: absolute;
+    left: 50%; /* Alinea el menú desplegable en el centro del contenedor padre */
+    transform: translateX(-50%); /* Corrige la posición del menú desplegable para que esté centrado */
+    z-index: 1;
+    width: 200px; /* Define el ancho del menú desplegable */
+}
+
+.dropdown-item {
+    display: block;
+    width: 100%;
+    padding: 20px; /* Hace los elementos del menú más grandes */
+    background-color: #00b5d6;
+    color: white;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    text-align: left;
+    transition: all 0.3s ease 0s;
+    font-size: 1.5em; /* Hace el texto más grande */
+}
+
+.dropdown-item:hover {
+    background-color: #008fb3;
+}
+
 .linkTest {
     color: #3a4972;
     text-decoration: none;
@@ -63,26 +113,81 @@ section {
     border-radius: 10px;
 }
 
-/* Estilos para el selector de filtro */
-select {
-    padding: 10px 20px;
-    margin: 20px 0;
-    font-size: 16px;
+/* Estilos para el botón de menú */
+/* Estilos para el botón de menú */
+.menu-button {
+    background-color: #87cefa; /* Color azul más oscuro */
+    color: white;
+    width: 300px; /* Ancho del botón */
     border: none;
-    border-radius: 5px;
+    cursor: pointer;
+    padding: 20px; /* Aumenta el espacio interior del botón */
+    margin: 10px;
+    font-size: 20px; /* Aumenta el tamaño del texto */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 15px; /* Bordes redondeados */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.25); /* Sombra para dar un aspecto tridimensional */
+    transition: all 0.3s ease; /* Transición suave al pasar el ratón por encima */
+}
+
+.menu-button:hover {
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5); /* Sombra más grande al pasar el ratón por encima */
+}
+
+.arrow {
+    border: solid white;
+    border-width: 0 4px 4px 0;
+    display: inline-block;
+    padding: 4px;
+    margin-left: 10px; /* Añade un margen a la izquierda */
+}
+
+.down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
+
+.up {
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+}
+
+
+/* Estilos para el menú desplegable */
+.dropdown-menu {
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 0; /* Elimina el padding para que el ancho sea el mismo que el del botón */
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    width: auto; /* Cambia el ancho a automático para que se ajuste al contenido */
+    text-align: center; /* Centra el texto */
+}
+
+.dropdown-item {
+    display: block;
+    padding: 10px 20px;
     background-color: #00b5d6;
     color: white;
     cursor: pointer;
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    border: none;
+    border-radius: 5px;
+    text-align: center; /* Centra el texto */
     transition: all 0.3s ease 0s;
 }
 
-select:hover {
-    background-color: #008fb3;
-    box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.2);
+.dropdown-item:nth-child(odd) {
+    background-color: #add8e6; /* Color azul claro para las áreas impares */
 }
 
-select:focus {
-    outline: none;
-    box-shadow: 0 0 10px #719ECE;
+.dropdown-item:nth-child(even) {
+    background-color: #87cefa; /* Color azul claro diferente para las áreas pares */
+}
+
+.dropdown-item:hover {
+    background-color: #008fb3;
 }
