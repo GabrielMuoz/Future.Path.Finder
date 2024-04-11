@@ -11,6 +11,10 @@ const links = [
         name: "Test",
         href: "/test"
     },
+    {
+        name: "Formulario",
+        href: "/formulario"
+    }
 ];
 
 function HomePage() {
@@ -35,18 +39,18 @@ function HomePage() {
 
             <section id="que-es-stem">
                 <h2>¿Qué es STEM?</h2>
-                <p>Descripción de STEM</p>
-            </section>
-
-            <section className="spacer"></section>
-
-            <section>
-                <div className="stem-acronimo">
-                    <div>S - Ciencia</div>
-                    <div>T - Tecnología</div>
-                    <div>E - Ingeniería</div>
-                    <div>M - Matemáticas</div>
-                </div>
+                <p>
+                    <span role="img" aria-label="Ciencia">🔬</span> Ciencia (S): La ciencia es el estudio sistemático de la naturaleza y el universo. Se enfoca en comprender cómo funcionan las cosas a través de la observación, la experimentación y la formulación de teorías.
+                </p>
+                <p>
+                    <span role="img" aria-label="Tecnología">💻</span> Tecnología (T): La tecnología se refiere a la aplicación del conocimiento científico para diseñar y crear herramientas, dispositivos y sistemas que satisfagan necesidades humanas y mejoren la calidad de vida.
+                </p>
+                <p>
+                    <span role="img" aria-label="Ingeniería">🛠️</span> Ingeniería (E): La ingeniería implica el diseño, la construcción y la optimización de estructuras, máquinas, sistemas y procesos para resolver problemas y satisfacer necesidades específicas de manera eficiente y segura.
+                </p>
+                <p>
+                    <span role="img" aria-label="Matemáticas">📐</span> Matemáticas (M): Las matemáticas son un lenguaje universal que se utiliza para describir y analizar patrones, relaciones y cantidades. Se aplican en una amplia gama de campos, desde la física y la ingeniería hasta la economía y la biología.
+                </p>
             </section>
 
             <section className="spacer"></section>
