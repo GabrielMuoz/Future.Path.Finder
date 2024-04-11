@@ -1,5 +1,6 @@
 import React from 'react';
-import './FormularioPage.css'; // Importa los estilos CSS de FormularioPage
+import { Link } from 'react-router-dom';
+import './FormularioPage.css'; 
 
 // Componentes para mostrar fórmulas de física, química y matemáticas, y explicar la sintaxis básica de Python
 function FormulasFisica() {
@@ -10,7 +11,6 @@ function FormulasFisica() {
         <li>Fórmula de la ley de Newton</li>
         <li>Fórmula de la ley de gravitación universal</li>
         <li>Fórmula de la ley de Ohm</li>
-        {/* Agrega más fórmulas de física según sea necesario */}
       </ul>
     </div>
   );
@@ -24,7 +24,6 @@ function FormulasQuimica() {
         <li>Fórmula de la ley de conservación de la masa</li>
         <li>Fórmula del número de Avogadro</li>
         <li>Fórmula de la ley de los gases ideales</li>
-        {/* Agrega más fórmulas de química según sea necesario */}
       </ul>
     </div>
   );
@@ -38,7 +37,6 @@ function FormulasMatematica() {
         <li>Fórmula del teorema de Pitágoras</li>
         <li>Fórmula de la ecuación cuadrática</li>
         <li>Fórmula del área de un círculo</li>
-        {/* Agrega más fórmulas de matemáticas según sea necesario */}
       </ul>
     </div>
   );

@@ -1,0 +1,104 @@
+/* Estilos para el cuerpo de la página */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+/* Estilos para el encabezado */
+header {
+    background-color: #f2f2f2;
+    padding: 20px 0;
+}
+
+/* Estilos para el título */
+h1 {
+    margin-bottom: 20px; /* Espacio entre el título y la barra de navegación */
+}
+
+/* Estilos para la barra de navegación */
+/* Estilos para la barra de navegación */
+nav {
+    background-color: #2c3e50; /* Azul marino intenso */
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilos para las secciones */
+section {
+    margin-top: 150px; /* Ajusta el espacio para que no se solape con la barra de navegación */
+    margin-bottom: 40px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Estilos para los cuadros contenedores */
+.formula-box {
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.formula-box h2 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.formula-box ul {
+    list-style: none;
+    padding: 0;
+}
+
+.formula-box li {
+    margin-bottom: 10px;
+}
+
+/* Estilos para el cuadro de sintaxis de Python */
+.python-syntax {
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.python-syntax h2 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.python-syntax ul {
+    list-style: none;
+    padding: 0;
+}
+
+.python-syntax li {
+    margin-bottom: 10px;
+}
+
+/* Estilos para los enlaces en la barra de navegación */
+.nav-link {
+    color: #00b5d6;
+    text-decoration: none;
+    padding: 15px 30px;
+    margin-right: 20px;
+}
+
+.nav-link:hover {
+    text-decoration: underline;
+}
+
+/* Estilos para el contenedor de fórmulas */
+.formulas-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
