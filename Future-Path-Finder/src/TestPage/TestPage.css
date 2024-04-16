@@ -6,6 +6,7 @@
     max-width: 700px;
     text-align: center;
     border-radius: 10px; 
+    font-family: monospace;
   }
   
   
@@ -29,9 +30,13 @@
   }
   .tituloTest{
       text-align: center;
+      font-family: monospace;
+      font-size: 40px;
   }
   .cajaAdvertencia{
-      text-align: center;
+    text-align: center;
+    font-family: monospace;
+    font-size: 20px;
   }
   
   nav {
@@ -84,4 +89,5 @@
     border: none; 
     border-radius: 10px; 
     cursor: pointer; 
+    font-family: monospace;
   }

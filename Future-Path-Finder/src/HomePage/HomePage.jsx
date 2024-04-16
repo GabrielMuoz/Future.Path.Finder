@@ -39,18 +39,36 @@ function HomePage() {
 
             <section id="que-es-stem">
                 <h2>¿Qué es STEM?</h2>
-                <p>
-                    <span role="img" aria-label="Ciencia">🔬</span> Ciencia (S): La ciencia es el estudio sistemático de la naturaleza y el universo. Se enfoca en comprender cómo funcionan las cosas a través de la observación, la experimentación y la formulación de teorías.
-                </p>
-                <p>
-                    <span role="img" aria-label="Tecnología">💻</span> Tecnología (T): La tecnología se refiere a la aplicación del conocimiento científico para diseñar y crear herramientas, dispositivos y sistemas que satisfagan necesidades humanas y mejoren la calidad de vida.
-                </p>
-                <p>
-                    <span role="img" aria-label="Ingeniería">🛠️</span> Ingeniería (E): La ingeniería implica el diseño, la construcción y la optimización de estructuras, máquinas, sistemas y procesos para resolver problemas y satisfacer necesidades específicas de manera eficiente y segura.
-                </p>
-                <p>
-                    <span role="img" aria-label="Matemáticas">📐</span> Matemáticas (M): Las matemáticas son un lenguaje universal que se utiliza para describir y analizar patrones, relaciones y cantidades. Se aplican en una amplia gama de campos, desde la física y la ingeniería hasta la economía y la biología.
-                </p>
+                <div className="contenedor-areas-stem">
+                    <div className="area-stem area-stem-ciencia">
+                        <i className="fas fa-flask"></i>
+                        <h3>Ciencia (S)</h3>
+                        <p>
+                            La ciencia es el estudio sistemático de la naturaleza y el universo. Se enfoca en comprender cómo funcionan las cosas a través de la observación, la experimentación y la formulación de teorías.
+                        </p>
+                    </div>
+                    <div className="area-stem area-stem-tecnologia">
+                        <i className="fas fa-laptop-code"></i>
+                        <h3>Tecnología (T)</h3>
+                        <p>
+                            La tecnología se refiere a la aplicación del conocimiento científico para diseñar y crear herramientas, dispositivos y sistemas que satisfagan necesidades humanas y mejoren la calidad de vida.
+                        </p>
+                    </div>
+                    <div className="area-stem area-stem-ingenieria">
+                        <i className="fas fa-wrench"></i>
+                        <h3>Ingeniería (E)</h3>
+                        <p>
+                            La ingeniería implica el diseño, la construcción y la optimización de estructuras, máquinas, sistemas y procesos para resolver problemas y satisfacer necesidades específicas de manera eficiente y segura.
+                        </p>
+                    </div>
+                    <div className="area-stem area-stem-matematicas">
+                        <i className="fas fa-calculator"></i>
+                        <h3>Matemáticas (M)</h3>
+                        <p>
+                            Las matemáticas son un lenguaje universal que se utiliza para describir y analizar patrones, relaciones y cantidades. Se aplican en una amplia gama de campos, desde la física y la ingeniería hasta la economía y la biología.
+                        </p>
+                    </div>
+                </div>
             </section>
 
             <section className="spacer"></section>
@@ -63,3 +81,4 @@ function HomePage() {
 }
 
 export default HomePage;
+

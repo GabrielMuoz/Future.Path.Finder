@@ -2,6 +2,25 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './FormularioPage.css'; 
 
+// Componente principal de la página de inicio que muestra todas las fórmulas y la sintaxis básica de Python
+function HomePage() {
+  return (
+    <div>
+      <h1>Future Path Finder</h1>
+      <nav className="navigation">
+        <Link to="/carreras" className="nav-link">Carreras</Link>
+        <Link to="/test" className="nav-link">Test</Link>
+        <Link to="/formulario" className="nav-link">Formulario</Link>
+      </nav>
+      <div className="formulas-container">
+        <FormulasFisica />
+        <FormulasQuimica />
+        <FormulasMatematica />
+      </div>
+      <SintaxisPython />
+    </div>
+  );
+}
 // Componentes para mostrar fórmulas de física, química y matemáticas, y explicar la sintaxis básica de Python
 function FormulasFisica() {
   return (
@@ -56,26 +75,6 @@ function SintaxisPython() {
         <li><strong>Estructuras de control:</strong> Python admite estructuras de control como if, else, elif para la toma de decisiones, y bucles como for y while para la iteración.</li>
       </ul>
       <p>Estos son solo algunos aspectos básicos de Python. ¡Puedes aprender mucho más explorando la documentación oficial y practicando con ejemplos!</p>
-    </div>
-  );
-}
-
-// Componente principal de la página de inicio que muestra todas las fórmulas y la sintaxis básica de Python
-function HomePage() {
-  return (
-    <div>
-      <h1>Future Path Finder</h1>
-      <div className="formulas-container">
-        <FormulasFisica />
-        <FormulasQuimica />
-        <FormulasMatematica />
-      </div>
-      <SintaxisPython />
-      <nav className="navigation">
-        <Link to="/carreras" className="nav-link">Carreras</Link>
-        <Link to="/test" className="nav-link">Test</Link>
-        <Link to="/formulario" className="nav-link">Formulario</Link>
-      </nav>
     </div>
   );
 }

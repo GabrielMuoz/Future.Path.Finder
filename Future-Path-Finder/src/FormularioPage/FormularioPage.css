@@ -1,7 +1,7 @@
 /* Estilos para el cuerpo de la página */
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: monospace;
     text-align: center;
 }
 
@@ -11,28 +11,49 @@ header {
     padding: 20px 0;
 }
 
-/* Estilos para el título */
-h1 {
-    margin-bottom: 20px; /* Espacio entre el título y la barra de navegación */
-}
-
 /* Estilos para la barra de navegación */
-
 nav {
-    background-color: #2c3e50; /* Azul marino intenso */
+    background-color: #2c3e50;
     height: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+.linkBarra {
+    color: #00b5d6;
+    text-decoration: none;
+    font-size: 20px;
+    display: inline-block;
+    padding: 15px 30px;
+}
+
+.linkTest {
+    color: #3a4972;
+    text-decoration: none;
+    font-size: 25px;
+    display: inline-block;
+    padding: 15px 50px;
+    background-color: #adb2c1;
+    border-radius: 5px;
+}
+
 /* Estilos para las secciones */
+
 section {
-    margin-top: 40px; /* Ajusta el espacio para que no se solape con la barra de navegación */
-    margin-bottom: 40px;
+    margin: 40px auto;
     max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 /* Estilos para los cuadros contenedores */
@@ -91,9 +112,6 @@ section {
     margin-right: 20px;
 }
 
-.nav-link:hover {
-    text-decoration: underline;
-}
 
 /* Estilos para el contenedor de fórmulas */
 .formulas-container {

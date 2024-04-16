@@ -1,4 +1,51 @@
 /* Estilos para CarrerasPage */
+
+.area-title {
+    font-size: 40px; /* tamaño de la fuente */
+    color: #04122c; /* color del texto */
+    font-weight: bold; /* negrita */
+    margin-bottom: 10px; /* espacio debajo del título */
+  }
+.carreras-area {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Ajusta el número de columnas automáticamente */
+    grid-gap: 20px; /* Espacio entre las áreas */
+}
+
+.carrera-box {
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center; /* Centra el texto dentro del área */
+}
+
+.carrera-box h3 {
+    color: #192a56; /* Color del título */
+    margin-bottom: 10px; /* Espacio entre el título y el texto */
+}
+
+.carrera-box p {
+    font-size: 16px;
+    line-height: 1.6;
+    font-family: monospace;
+}
+
+/* Colores para las áreas de Carreras */
+.carrera-box:nth-child(odd) {
+    background-color: #aed6f1; /* Azul pastel para las áreas impares */
+}
+
+.carrera-box:nth-child(even) {
+    background-color: #7fb3d5; /* Azul pastel diferente para las áreas pares */
+}
+
+.carrera-box:nth-child(3n+1) {
+    background-color: #5499c7; /* Azul pastel */
+}
+
+.carrera-box:nth-child(3n+2) {
+    background-color: #2980b9; /* Azul pastel diferente */
+}
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -24,25 +71,6 @@ section {
     max-width: 800px;
 }
 
-/* Estilos existentes */
-
-.stem-acronimo {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 30px;
-}
-
-.stem-acronimo div {
-    flex: 1;
-}
-
-.linkBarra {
-    color: #00b5d6;
-    text-decoration: none;
-    padding: 15px 30px;
-    margin-right: 20px;
-}
-
 /* Estilos para el contenedor del filtro */
 .filter-container {
     display: flex;
@@ -58,15 +86,17 @@ section {
 
 /* Estilos para el botón de menú */
 .menu-button {
-    font-size: 50px; /* Hace el botón más grande */
-    background: none;
+    font-size: 30px; /* Hace el botón más grande */
+    background-color: #87cefa;
     border: none;
     cursor: pointer;
+    color: #192a56;
+    font-family: monospace;
 }
 
 /* Estilos para el menú desplegable */
 .dropdown-menu {
-    background-color: #f9f9f9;
+    background-color: transparent;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     padding: 12px 16px;
     position: absolute;
@@ -79,104 +109,13 @@ section {
 .dropdown-item {
     display: block;
     width: 100%;
-    padding: 20px; /* Hace los elementos del menú más grandes */
+    padding: 30px; /* Hace los elementos del menú más grandes */
     background-color: #00b5d6;
-    color: white;
+    color: #192a56;
     cursor: pointer;
     border: none;
     border-radius: 5px;
     text-align: left;
-    transition: all 0.3s ease 0s;
-    font-size: 1.5em; /* Hace el texto más grande */
-}
-
-.dropdown-item:hover {
-    background-color: #008fb3;
-}
-
-.linkTest {
-    color: #3a4972;
-    text-decoration: none;
-    font-size: 25px;
-    display: inline-block;
-    padding: 15px 50px;
-    background-color: #adb2c1;
-    border-radius: 5px;
-}
-
-.area-box {
-    display: inline-block;
-    width: 200px;
-    border: 1px solid #2c3e50;
-    padding: 20px;
-    margin: 20px;
-    border-radius: 10px;
-}
-
-/* Estilos para el botón de menú */
-/* Estilos para el botón de menú */
-.menu-button {
-    background-color: #87cefa; /* Color azul más oscuro */
-    color: white;
-    width: 300px; /* Ancho del botón */
-    border: none;
-    cursor: pointer;
-    padding: 20px; /* Aumenta el espacio interior del botón */
-    margin: 10px;
-    font-size: 20px; /* Aumenta el tamaño del texto */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-radius: 15px; /* Bordes redondeados */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.25); /* Sombra para dar un aspecto tridimensional */
-    transition: all 0.3s ease; /* Transición suave al pasar el ratón por encima */
-}
-
-.menu-button:hover {
-    box-shadow: 0 2px 10px rgba(0,0,0,0.5); /* Sombra más grande al pasar el ratón por encima */
-}
-
-.arrow {
-    border: solid white;
-    border-width: 0 4px 4px 0;
-    display: inline-block;
-    padding: 4px;
-    margin-left: 10px; /* Añade un margen a la izquierda */
-}
-
-.down {
-    transform: rotate(45deg);
-    -webkit-transform: rotate(45deg);
-}
-
-.up {
-    transform: rotate(-135deg);
-    -webkit-transform: rotate(-135deg);
-}
-
-
-/* Estilos para el menú desplegable */
-.dropdown-menu {
-    background-color: #f9f9f9;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    padding: 0; /* Elimina el padding para que el ancho sea el mismo que el del botón */
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1;
-    width: auto; /* Cambia el ancho a automático para que se ajuste al contenido */
-    text-align: center; /* Centra el texto */
-}
-
-.dropdown-item {
-    display: block;
-    padding: 10px 20px;
-    background-color: #00b5d6;
-    color: white;
-    cursor: pointer;
-    border: none;
-    border-radius: 5px;
-    text-align: center; /* Centra el texto */
     transition: all 0.3s ease 0s;
 }
 
@@ -185,9 +124,6 @@ section {
 }
 
 .dropdown-item:nth-child(even) {
-    background-color: #87cefa; /* Color azul claro diferente para las áreas pares */
+    background-color: #87cefa
 }
 
-.dropdown-item:hover {
-    background-color: #008fb3;
-}

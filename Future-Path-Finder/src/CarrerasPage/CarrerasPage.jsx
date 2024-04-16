@@ -5,12 +5,16 @@ import axios from 'axios'; // Importa Axios para hacer solicitudes HTTP
 
 const links = [
   {
-    name: "Inicio",
-    href: "/"
+    name: 'Inicio',
+    href: '/',
   },
   {
-    name: "Test",
-    href: "/test"
+    name: 'Test',
+    href: '/test',
+  },
+  {
+    name: 'Formulario',
+    href: '/formulario',
   },
 ];
 
@@ -93,3 +97,5 @@ function CarrerasPage() {
 }
 
 export default CarrerasPage;
+
+

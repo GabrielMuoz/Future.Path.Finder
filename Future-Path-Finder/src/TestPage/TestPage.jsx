@@ -8,6 +8,10 @@ const links=[
         name: "Regresar al inicio",
         href: "/"
     },
+    {
+        name: "Formulario",
+        href: "/formulario"
+    },
 ];
 
 function TestPage() {
