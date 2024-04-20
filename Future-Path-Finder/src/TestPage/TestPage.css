@@ -1,93 +1,170 @@
+
 .recuadroPreguntas {
-    background-color: #dbd3d3;
-    padding: 20px;
-    margin: 20px auto;
-    width: calc(100% - 40px); 
-    max-width: 700px;
-    text-align: center;
-    border-radius: 10px; 
-    font-family: monospace;
-  }
-  
-  
-  section {
-    margin-bottom: 20px; 
-  }
-  
-  .container{
-      max-width: 700px;
-      margin: auto;
-      padding: 20px;
-  }
-   .centrarBoton {
-    text-align: center;
-  }
-  
-  header {
-    background-color: #f2f2f2;
-    padding: 20px 0;
-    text-align: center;
-  }
-  .tituloTest{
-      text-align: center;
-      font-family: monospace;
-      font-size: 40px;
-  }
-  .cajaAdvertencia{
-    text-align: center;
-    font-family: monospace;
-    font-size: 20px;
-  }
-  
-  nav {
-    background-color: #ddd;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
-  
-  nav ul li {
-    display: inline;
-    margin-right: 20px;
-  }
-  
-  .linkBarra {
-    color: #00b5d6;
-    text-decoration: none;
-    font-size: 20px;
-    display: inline-block;
-    padding: 15px 30px;
-  }
-  
-  .linkTest {
-    color: #3a4972;
-    text-decoration: none;
-    font-size: 25px;
-    display: inline-block;
-    padding: 15px 50px;
-    background-color: #adb2c1;
-    border-radius: 5px;
-  }
-  
-  section label {
-    color: #00b5d6; 
-  }
-  
-  .botonTerminar {
-    background-color: #00b5d6; 
-    color: white; 
-    font-weight: bold; 
-    font-size: 20px; 
-    padding: 15px 30px; 
-    border: none; 
-    border-radius: 10px; 
-    cursor: pointer; 
-    font-family: monospace;
-  }
+  background-color: #dbd3d3;
+  padding: 20px;
+  margin: 20px auto;
+  width: calc(100% - 40px); 
+  max-width: 700px;
+  text-align: center;
+  border-radius: 10px; 
+  font-family: monospace;
+}
+
+section {
+  margin-bottom: 20px; 
+}
+
+.container {
+  max-width: 700px;
+  margin: auto;
+  padding: 20px;
+}
+
+.centrarBoton {
+  text-align: center;
+}
+
+
+header {
+  background-color: #f2f2f2;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.tituloTest {
+  text-align: center;
+  font-family: monospace;
+  font-size: 40px;
+}
+
+.cajaAdvertencia {
+  text-align: center;
+  font-family: monospace;
+  font-size: 20px;
+}
+
+
+nav {
+  background-color: #ddd;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 20px;
+}
+
+.linkBarra {
+  color: #00b5d6;
+  text-decoration: none;
+  font-size: 20px;
+  display: inline-block;
+  padding: 15px 30px;
+}
+
+.linkTest {
+  color: #3a4972;
+  text-decoration: none;
+  font-size: 25px;
+  display: inline-block;
+  padding: 15px 50px;
+  background-color: #adb2c1;
+  border-radius: 5px;
+}
+
+section label {
+  color: #00b5d6; 
+}
+
+.botonTerminar {
+  background-color: #00b5d6; 
+  color: white; 
+  font-weight: bold; 
+  font-size: 20px; 
+  padding: 15px 30px; 
+  border: none; 
+  border-radius: 10px; 
+  cursor: pointer; 
+  font-family: monospace;
+}
+
+/* Estilos para la ventana emergente */
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  z-index: 9999;
+  width: calc(100% - 40px); 
+  max-width: 500px; 
+  font-family: monospace;
+  text-align: center; 
+  overflow-y: auto; 
+}
+
+.popup h2 {
+  margin-top: 0;
+}
+
+.popup .close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.popup .close:hover {
+  color: red;
+}
+
+.popup .Resultados {
+  margin-bottom: 20px; 
+}
+
+.popup .Resultados p {
+  font-family: monospace;
+}
+
+.barraDeCarga {
+  background-color: #f2f2f2;
+  height: 20px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+.barraDeCarga .progreso {
+  background-color: #00b5d6;
+  height: 100%;
+  width: 0;
+  border-radius: 10px;
+  transition: width 0.5s ease-in-out;
+}
+
+
+.popup .carrera {
+  margin-bottom: 10px;
+}
+
+.popup .carrera p {
+  margin: 0;
+  font-family: monospace;
+  color: #333; 
+}
+
+.popup .carrera p:first-child {
+  font-weight: bold;
+}

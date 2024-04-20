@@ -7,6 +7,7 @@ import TestPage from './TestPage/TestPage';
 import FormularioPage from './FormularioPage/FormularioPage';
 
 
+
 function App() {
   return (
     <div className="">
@@ -16,6 +17,7 @@ function App() {
           <Route path="/carreras" element={<CarrerasPage />} />
           <Route path="/test" element={<TestPage />} />
           <Route path="/formulario" element={<FormularioPage />} /> 
+        
         </Routes>
       </Router>
     </div>
