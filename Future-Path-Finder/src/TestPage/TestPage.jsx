@@ -22,7 +22,7 @@ const generatePDF = (contadores, carreras) => {
   doc.setFontSize(18);
   doc.text('Resultados del Test', 10, 10);
 
-  // Agregar resultados del test al PDF
+  
   let yPos = 30;
   Object.keys(contadores).forEach((area, index) => {
       const porcentaje = contadores[area];
@@ -33,7 +33,7 @@ const generatePDF = (contadores, carreras) => {
       yPos += 10;
   });
 
-  // Agregar carreras recomendadas al PDF
+  
   yPos += 10;
   doc.setFontSize(16);
   doc.text('Carreras Recomendadas:', 10, yPos);
@@ -43,7 +43,7 @@ const generatePDF = (contadores, carreras) => {
       yPos += 10;
   });
 
-  return doc.output('blob'); // Devolver el objeto Blob del PDF
+  return doc.output('blob'); 
 };
 
 
@@ -86,7 +86,7 @@ function TestPage() {
   
               setPreguntas(areas);
               setContadores(initialContadores);
-              setCarreras(carrerasResponse.data.slice(0, 3)); // Mostrar solo las primeras tres carreras
+              setCarreras(carrerasResponse.data.slice(0, 3)); 
           } catch (error) {
               console.error('Error al obtener los datos:', error);
           }
