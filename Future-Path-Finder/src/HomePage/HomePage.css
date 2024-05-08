@@ -106,3 +106,15 @@ section {
     padding: 15px 30px;
     margin-right: 20px;
 }
+
+.linkTest {
+    background-color: #00b5d6; 
+  color: white; 
+  font-weight: bold; 
+  font-size: 20px; 
+  padding: 15px 30px; 
+  border: none; 
+  border-radius: 10px; 
+  cursor: pointer; 
+  font-family: monospace;
+  }
