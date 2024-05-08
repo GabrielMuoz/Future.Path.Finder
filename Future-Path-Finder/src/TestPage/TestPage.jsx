@@ -136,7 +136,7 @@ function TestPage() {
                 ))}
             </nav>
             <h2 className="tituloTest">Test</h2>
-            <p className="cajaAdvertencia">recordatorio</p>
+            <p className="cajaAdvertencia">Ten presente que no es una evaluación, es una herramienta para que explores tus habilidades, responde tranquilamente. Si necesitas informacion para responder, ve a nuestra pagina de Fromulario. Responder con honestidad te llevara a un resultado certero. ¡Buena Suerte!</p>
 
             <div className="recuadroPreguntas">
                 {Object.keys(preguntas).map((area, index) => (

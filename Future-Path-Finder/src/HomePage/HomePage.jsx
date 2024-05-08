@@ -32,7 +32,7 @@ function HomePage() {
 
             <section id="que-es-future-path-finder">
                 <h2>¿Qué es Future Path Finder?</h2>
-                <p>Descripción de Future Path Finder</p>
+                <p>Consideremoslo como una herramienta para los estudiantes que buscan orientación vocacional hacia carreras STEM, proporcionándoles la información y los resultados necesarios para conocer en qué área del acrónimo sus habilidades son más prominentes.</p>
             </section>
 
             <section className="spacer"></section>

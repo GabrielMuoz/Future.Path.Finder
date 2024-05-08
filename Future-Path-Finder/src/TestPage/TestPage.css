@@ -1,3 +1,21 @@
+.tituloTest,
+.cajaAdvertencia {
+  padding: 20px;
+  background-color: #67b6e0; /* Color de fondo azul */
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.2); /* Sombra ligera */
+  margin-bottom: 20px; /* Espacio debajo de la sección */
+  text-align: justify; /* Texto justificado */
+  max-width: 600px; /* Ancho máximo reducido */
+  margin-left: auto; /* Centra el elemento */
+  margin-right: auto; /* Centra el elemento */
+}
+
+.tituloTest,
+.cajaAdvertencia {
+  text-align: center; /* Centra el texto */
+  font-size: 1.5em; /* Aumenta el tamaño del texto */
+}
 
 .recuadroPreguntas {
   background-color: #dbd3d3;
