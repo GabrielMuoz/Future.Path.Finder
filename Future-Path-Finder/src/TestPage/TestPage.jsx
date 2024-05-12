@@ -18,23 +18,23 @@ const links = [
 ];
 
 const sendEmail = (pdfBlob, toEmail) => {
-  // Configura tu servicio de EmailJS
+  
   const serviceID = 'resultados_gmail_02';
   const templateID = 'Resultados_dgh4ojp';
   const userID = 'an_HLuUyQ2XaG8pc0';
 
-  // Configura los parámetros para enviar el correo
+ 
   const emailParams = {
-    to_email: toEmail, // Usar el correo proporcionado por el usuario
+    to_email: toEmail, 
     message: 'Adjunto encontrarás los resultados del test.',
   };
 
-  // Configura los archivos adjuntos
+
   const attachments = {
     'resultados_test.pdf': pdfBlob,
   };
 
-  // Llama a la API de EmailJS para enviar el correo
+
   emailjs.send(serviceID, templateID, emailParams, userID, attachments)
     .then((response) => {
       console.log('Correo enviado con éxito:', response);
@@ -46,11 +46,11 @@ const sendEmail = (pdfBlob, toEmail) => {
     });
 };
 
-// Función para solicitar el correo electrónico al usuario
+
 const solicitarCorreo = () => {
   const toEmail = prompt('Ingresa tu correo electrónico:');
   if (toEmail) {
-    // Si se proporciona un correo electrónico, generar el PDF y enviar el correo
+    
     const pdfBlob = generatePDF(contadores, carreras.map(carrera => ({ nombre: carrera.nombre, area: carrera.area })));
     sendEmail(pdfBlob, toEmail);
   } else {
@@ -64,7 +64,7 @@ const generatePDF = (contadores, carreras) => {
   doc.setFontSize(18);
   doc.text('Resultados del Test', 10, 10);
 
-  // Agregar resultados del test al PDF
+
   let yPos = 30;
   Object.keys(contadores).forEach((area, index) => {
       const porcentaje = contadores[area];
@@ -75,7 +75,7 @@ const generatePDF = (contadores, carreras) => {
       yPos += 10;
   });
 
-  // Agregar carreras recomendadas al PDF
+ 
   yPos += 10;
   doc.setFontSize(16);
   doc.text('Carreras Recomendadas:', 10, yPos);
@@ -85,7 +85,7 @@ const generatePDF = (contadores, carreras) => {
       yPos += 10;
   });
 
-  return doc.output('blob'); // Devolver el objeto Blob del PDF
+  return doc.output('blob'); 
 };
 
 
@@ -128,7 +128,7 @@ function TestPage() {
   
               setPreguntas(areas);
               setContadores(initialContadores);
-              setCarreras(carrerasResponse.data.slice(0, 3)); // Mostrar solo las primeras tres carreras
+              setCarreras(carrerasResponse.data.slice(0, 3)); 
           } catch (error) {
               console.error('Error al obtener los datos:', error);
           }
@@ -229,7 +229,7 @@ function TestPage() {
                     </ul>
                     <button className="botonDescargarPDF" onClick={() => { 
                         const pdfBlob = generatePDF(contadores, carreras.map(carrera => ({ nombre: carrera.nombre, area: carrera.area })));
-                        // Descargar PDF
+                        
                         const link = document.createElement('a');
                         link.href = window.URL.createObjectURL(pdfBlob);
                         link.download = 'resultados_test.pdf';
