@@ -21,6 +21,22 @@ nav {
     align-items: center;
 }
 
+/* Estilos para la sección Future Path Finder */
+#que-es-future-path-finder {
+    padding: 20px;
+    background-color: #67b6e0; /* Color de fondo azul */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.2); /* Sombra ligera */
+    margin-bottom: 20px; /* Espacio debajo de la sección */
+    text-align: justify; /* Texto justificado */
+  }
+  
+  #que-es-future-path-finder h2,
+  #que-es-future-path-finder p {
+    text-align: center; /* Centra el texto */
+    font-size: 1.5em; /* Aumenta el tamaño del texto */
+  }
+
 /* Estilos para las secciones */
 section {
     margin: 80px auto;
@@ -90,3 +106,15 @@ section {
     padding: 15px 30px;
     margin-right: 20px;
 }
+
+.linkTest {
+    background-color: #00b5d6; 
+  color: white; 
+  font-weight: bold; 
+  font-size: 20px; 
+  padding: 15px 30px; 
+  border: none; 
+  border-radius: 10px; 
+  cursor: pointer; 
+  font-family: monospace;
+  }

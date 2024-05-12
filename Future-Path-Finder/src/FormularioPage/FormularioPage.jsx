@@ -27,8 +27,8 @@ function FormulasFisica() {
     <div className="formula-box">
       <h2>Fórmulas de Física</h2>
       <ul>
-        <li>Fórmula de la ley de Newton</li>
-        <li>Fórmula de la ley de gravitación universal</li>
+        <li>Fórmula de la ley de Newton: F = m * a</li>
+        <li>Fórmula de la ley de gravitación universal: F = (G * m1 * m2) / r^2</li>
         <li>Fórmula de la ley de Ohm</li>
       </ul>
     </div>
@@ -41,7 +41,7 @@ function FormulasQuimica() {
       <h2>Fórmulas de Química</h2>
       <ul>
         <li>Fórmula de la ley de conservación de la masa</li>
-        <li>Fórmula del número de Avogadro</li>
+        <li>Fórmula del número de Avogadro: NA = 6.022 * 10^23 mol^-1</li>
         <li>Fórmula de la ley de los gases ideales</li>
       </ul>
     </div>
@@ -53,9 +53,9 @@ function FormulasMatematica() {
     <div className="formula-box">
       <h2>Fórmulas de Matemáticas</h2>
       <ul>
-        <li>Fórmula del teorema de Pitágoras</li>
-        <li>Fórmula de la ecuación cuadrática</li>
-        <li>Fórmula del área de un círculo</li>
+        <li>Fórmula del teorema de Pitágoras: c = sqrt(a^2 + b^2)</li>
+        <li>Fórmula de la ecuación cuadrática: x = (-b ± sqrt(b^2 - 4ac)) / (2a)</li>
+        <li>Fórmula del área de un círculo: A = π * r^2</li>
       </ul>
     </div>
   );

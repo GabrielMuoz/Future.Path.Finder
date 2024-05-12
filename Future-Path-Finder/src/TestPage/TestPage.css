@@ -1,13 +1,52 @@
+.tituloTest,
+.cajaAdvertencia {
+  padding: 20px;
+  background-color: #4293bf; /* Color de fondo azul */
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.2); /* Sombra ligera */
+  margin-bottom: 20px; /* Espacio debajo de la sección */
+  text-align: justify; /* Texto justificado */
+  max-width: 600px; /* Ancho máximo reducido */
+  margin-left: auto; /* Centra el elemento */
+  margin-right: auto; /* Centra el elemento */
+}
+
+.tituloTest,
+.cajaAdvertencia {
+  text-align: center; /* Centra el texto */
+  font-size: 1.5em; /* Aumenta el tamaño del texto */
+}
 
 .recuadroPreguntas {
-  background-color: #dbd3d3;
-  padding: 20px;
+  background-color: #d1def6; /* Color de fondo más claro */
+  padding: 30px; /* Aumenta el padding */
   margin: 20px auto;
   width: calc(100% - 40px); 
   max-width: 700px;
   text-align: center;
-  border-radius: 10px; 
-  font-family: monospace;
+  border-radius: 15px; /* Bordes más redondeados */
+  font-family: monospace; /* Mantén la fuente monospace */
+  box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.2); /* Sombra ligera */
+  line-height: 1.6; /* Espaciado de línea para mejorar la legibilidad */
+  color: #333; /* Color de texto oscuro para mejorar el contraste */
+  border: 5px solid #67b6e0; /* Borde ancho y de color #67b6e0 */
+}
+
+input[type="radio"] {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #022748;
+  border-radius: 50%;
+  outline: none;
+  box-shadow: 0 0 5px #01131c;
+  transition: 0.2s;
+}
+
+input[type="radio"]:checked {
+  border: 1px solid #67b6e0;
+  box-shadow: 0 0 5px #67b6e0;
+  background: #67b6e0;
 }
 
 section {
