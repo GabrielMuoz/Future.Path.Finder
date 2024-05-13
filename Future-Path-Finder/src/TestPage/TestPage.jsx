@@ -3,6 +3,7 @@ import './TestPage.css';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import jsPDF from 'jspdf';
+import emailjs from 'emailjs-com';
 
 
 const links = [
@@ -16,13 +17,54 @@ const links = [
     },
 ];
 
+const sendEmail = (pdfBlob, toEmail) => {
+  
+  const serviceID = 'resultados_gmail_02';
+  const templateID = 'Resultados_dgh4ojp';
+  const userID = 'an_HLuUyQ2XaG8pc0';
+
+ 
+  const emailParams = {
+    to_email: toEmail, 
+    message: 'Adjunto encontrarás los resultados del test.',
+  };
+
+
+  const attachments = {
+    'resultados_test.pdf': pdfBlob,
+  };
+
+
+  emailjs.send(serviceID, templateID, emailParams, userID, attachments)
+    .then((response) => {
+      console.log('Correo enviado con éxito:', response);
+      alert('El correo electrónico se ha enviado correctamente.');
+    })
+    .catch((error) => {
+      console.error('Error al enviar el correo electrónico:', error);
+      alert('Ocurrió un error al enviar el correo electrónico. Por favor, inténtalo de nuevo más tarde.');
+    });
+};
+
+
+const solicitarCorreo = () => {
+  const toEmail = prompt('Ingresa tu correo electrónico:');
+  if (toEmail) {
+    
+    const pdfBlob = generatePDF(contadores, carreras.map(carrera => ({ nombre: carrera.nombre, area: carrera.area })));
+    sendEmail(pdfBlob, toEmail);
+  } else {
+    alert('Debes ingresar un correo electrónico válido.');
+  }
+};
+
 
 const generatePDF = (contadores, carreras) => {
   const doc = new jsPDF();
   doc.setFontSize(18);
   doc.text('Resultados del Test', 10, 10);
 
-  
+
   let yPos = 30;
   Object.keys(contadores).forEach((area, index) => {
       const porcentaje = contadores[area];
@@ -33,7 +75,7 @@ const generatePDF = (contadores, carreras) => {
       yPos += 10;
   });
 
-  
+ 
   yPos += 10;
   doc.setFontSize(16);
   doc.text('Carreras Recomendadas:', 10, yPos);
@@ -187,7 +229,7 @@ function TestPage() {
                     </ul>
                     <button className="botonDescargarPDF" onClick={() => { 
                         const pdfBlob = generatePDF(contadores, carreras.map(carrera => ({ nombre: carrera.nombre, area: carrera.area })));
-                        // Descargar PDF
+                        
                         const link = document.createElement('a');
                         link.href = window.URL.createObjectURL(pdfBlob);
                         link.download = 'resultados_test.pdf';
@@ -195,9 +237,16 @@ function TestPage() {
                     }}>
                         Descargar PDF
                     </button>
-                    <button className="botonEnviarCorreo" onClick={solicitarCorreo}>
-                      Enviar por Correo Electrónico
+                    <button className="botonEnviarCorreo" onClick={() => { 
+                        const toEmail = prompt('Ingresa tu correo electrónico:');
+                        const fromName = prompt('Ingresa tu nombre:');
+                        const pdfBlob = generatePDF(contadores, carreras.map(carrera => ({ nombre: carrera.nombre, area: carrera.area })));
+                        sendEmail(pdfBlob, toEmail, fromName);
+                      }}>
+                        Enviar por Correo Electrónico
                     </button>
+
+
                 </div>
             )}
         </div>

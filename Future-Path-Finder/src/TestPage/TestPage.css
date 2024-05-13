@@ -218,9 +218,9 @@ section label {
   border-radius: 10px;
   cursor: pointer;
   font-family: monospace;
-  margin-top: 20px; /* Espacio adicional entre el botón y el contenido anterior */
+  margin-top: 20px; 
 }
 
 .botonDescargarPDF:hover {
-  background-color: #0089a5; /* Cambio de color al pasar el mouse */
+  background-color: #0089a5; 
 }
