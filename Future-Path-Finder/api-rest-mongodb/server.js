@@ -1,11 +1,18 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const multer = require('multer');
 const cors = require('cors');
+const nodemailer = require('nodemailer');
+const smtpTransport = require('nodemailer-smtp-transport');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(cors());
+app.use(express.json());
+
+const storage = multer.memoryStorage();
+const upload = multer({ storage: storage });
 
 mongoose.connect('mongodb+srv://root:Desarrollo@futurepathfindercluster.jutfoen.mongodb.net/fpf', {
   dbName: 'fpf',
@@ -72,5 +79,42 @@ app.use((err, req, res, next) => {
 
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en el puerto ${PORT}`);
+});
+
+app.post('/api/enviar-correo', upload.single('pdf'), async (req, res) => {
+  const pdfFile = req.file; 
+  const correoDestinatario = req.body.correoDestinatario;
+
+  const transporter = nodemailer.createTransport(smtpTransport({
+    service: 'Gmail',
+    auth: {
+        type: 'OAuth2',
+        user: 'futurepathfinder161@gmail.com',
+        clientId: '751964465062-bd6icuojps5tg011cmblqj2391s02494.apps.googleusercontent.com',
+        clientSecret: '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',
+        refreshToken: '1//048izvbjz8BjuCgYIARAAGAQSNwF-L9Ir4VvIQgYkXFl_IMqsDKLHXLPmMhyV2k1TY4AG0ErDsUeh3moRXJ2VsOsiMyy12SheL_4',
+        accessToken: 'tu_token_de_acceso', // Este campo es opcional
+    }
+  }));
+
+  const mailOptions = {
+    from: 'futurepathfinder161@gmail.com',
+    to: correoDestinatario,
+    subject: 'Resultados del Test de tu examen vocacional STEM',
+    text: 'Adjuntamos los resultados del Test en formato PDF.',
+    attachments: [{
+      filename: 'resultados_test.pdf',
+      content: pdfFile.buffer,
+      encoding: 'base64'
+    }]
+  };
+
+  try {
+    await transporter.sendMail(mailOptions);
+    res.status(200).send('Correo enviado correctamente.');
+  } catch (error) {
+    console.error('Error al enviar el correo:', error);
+    res.status(500).send('Ocurrió un error al enviar el correo.');
+  }
 });
 

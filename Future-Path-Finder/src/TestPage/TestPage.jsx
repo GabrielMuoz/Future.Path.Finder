@@ -3,8 +3,6 @@ import './TestPage.css';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import jsPDF from 'jspdf';
-import emailjs from 'emailjs-com';
-
 
 const links = [
     {
@@ -15,79 +13,11 @@ const links = [
         name: "Formulario",
         href: "/formulario"
     },
+    {
+        name: "Carreras",
+        href: "/carreras"
+    }
 ];
-
-const sendEmail = (pdfBlob, toEmail) => {
-  
-  const serviceID = 'resultados_gmail_02';
-  const templateID = 'Resultados_dgh4ojp';
-  const userID = 'an_HLuUyQ2XaG8pc0';
-
- 
-  const emailParams = {
-    to_email: toEmail, 
-    message: 'Adjunto encontrarás los resultados del test.',
-  };
-
-
-  const attachments = {
-    'resultados_test.pdf': pdfBlob,
-  };
-
-
-  emailjs.send(serviceID, templateID, emailParams, userID, attachments)
-    .then((response) => {
-      console.log('Correo enviado con éxito:', response);
-      alert('El correo electrónico se ha enviado correctamente.');
-    })
-    .catch((error) => {
-      console.error('Error al enviar el correo electrónico:', error);
-      alert('Ocurrió un error al enviar el correo electrónico. Por favor, inténtalo de nuevo más tarde.');
-    });
-};
-
-
-const solicitarCorreo = () => {
-  const toEmail = prompt('Ingresa tu correo electrónico:');
-  if (toEmail) {
-    
-    const pdfBlob = generatePDF(contadores, carreras.map(carrera => ({ nombre: carrera.nombre, area: carrera.area })));
-    sendEmail(pdfBlob, toEmail);
-  } else {
-    alert('Debes ingresar un correo electrónico válido.');
-  }
-};
-
-
-const generatePDF = (contadores, carreras) => {
-  const doc = new jsPDF();
-  doc.setFontSize(18);
-  doc.text('Resultados del Test', 10, 10);
-
-
-  let yPos = 30;
-  Object.keys(contadores).forEach((area, index) => {
-      const porcentaje = contadores[area];
-      doc.setFontSize(12);
-      doc.text(`${area}: ${porcentaje}%`, 10, yPos);
-      yPos += 10;
-      doc.rect(10, yPos, porcentaje * 1.5, 5, 'F');
-      yPos += 10;
-  });
-
- 
-  yPos += 10;
-  doc.setFontSize(16);
-  doc.text('Carreras Recomendadas:', 10, yPos);
-  yPos += 10;
-  carreras.forEach((carrera, index) => {
-      doc.text(`${index + 1}. ${carrera.nombre} - ${carrera.area}`, 15, yPos);
-      yPos += 10;
-  });
-
-  return doc.output('blob'); 
-};
-
 
 function TestPage() {
     const [preguntas, setPreguntas] = useState([]);
@@ -95,6 +25,7 @@ function TestPage() {
     const [contadores, setContadores] = useState({});
     const [showPopup, setShowPopup] = useState(false);
     const [carreras, setCarreras] = useState([]);
+    const [correoDestinatario, setCorreoDestinatario] = useState('');
 
     useEffect(() => {
         const storedAnswers = JSON.parse(localStorage.getItem('respuestas'));
@@ -108,33 +39,33 @@ function TestPage() {
     }, [respuestas]);
 
     useEffect(() => {
-      const fetchData = async () => {
-          try {
-              const [preguntasResponse, carrerasResponse] = await Promise.all([
-                  axios.get('http://localhost:3000/api/test'),
-                  axios.get('http://localhost:3000/api/carreras')
-              ]);
-  
-              const areas = preguntasResponse.data.reduce((acc, pregunta) => {
-                  acc[pregunta.area] = acc[pregunta.area] || [];
-                  acc[pregunta.area].push(pregunta);
-                  return acc;
-              }, {});
-  
-              const initialContadores = Object.keys(areas).reduce((acc, area) => {
-                  acc[area] = 0;
-                  return acc;
-              }, {});
-  
-              setPreguntas(areas);
-              setContadores(initialContadores);
-              setCarreras(carrerasResponse.data.slice(0, 3)); 
-          } catch (error) {
-              console.error('Error al obtener los datos:', error);
-          }
-      };
-      fetchData();
-  }, []);
+        const fetchData = async () => {
+            try {
+                const [preguntasResponse, carrerasResponse] = await Promise.all([
+                    axios.get('http://localhost:3000/api/test'),
+                    axios.get('http://localhost:3000/api/carreras')
+                ]);
+
+                const areas = preguntasResponse.data.reduce((acc, pregunta) => {
+                    acc[pregunta.area] = acc[pregunta.area] || [];
+                    acc[pregunta.area].push(pregunta);
+                    return acc;
+                }, {});
+
+                const initialContadores = Object.keys(areas).reduce((acc, area) => {
+                    acc[area] = 0;
+                    return acc;
+                }, {});
+
+                setPreguntas(areas);
+                setContadores(initialContadores);
+                setCarreras(carrerasResponse.data.slice(0, 3));
+            } catch (error) {
+                console.error('Error al obtener los datos:', error);
+            }
+        };
+        fetchData();
+    }, []);
 
     const handleRespuesta = (area, indexPregunta, opcionSeleccionada) => {
         setRespuestas(prevRespuestas => ({
@@ -167,6 +98,59 @@ function TestPage() {
         setShowPopup(true);
     };
 
+    const enviarCorreo = async (pdfBlob) => {
+        const formData = new FormData();
+        formData.append('pdf', pdfBlob, 'resultados_test.pdf');
+        formData.append('correoDestinatario', correoDestinatario);
+
+        try {
+            await axios.post('http://localhost:3000/api/enviar-correo', formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            });
+            console.log('Correo enviado correctamente');
+        } catch (error) {
+            console.error('Error al enviar el correo:', error);
+        }
+    };
+
+    const handleEnviarCorreo = () => {
+        if (correoDestinatario) {
+            const pdfBlob = generatePDF(contadores, carreras.map(carrera => ({ nombre: carrera.nombre, area: carrera.area })));
+            enviarCorreo(pdfBlob);
+        } else {
+            alert('Por favor ingrese su dirección de correo electrónico.');
+        }
+    };
+
+    const generatePDF = (contadores, carreras) => {
+        const doc = new jsPDF();
+        doc.setFontSize(18);
+        doc.text('Resultados del Test', 10, 10);
+
+        let yPos = 30;
+        Object.keys(contadores).forEach((area, index) => {
+            const porcentaje = contadores[area];
+            doc.setFontSize(12);
+            doc.text(`${area}: ${porcentaje}%`, 10, yPos);
+            yPos += 10;
+            doc.rect(10, yPos, porcentaje * 1.5, 5, 'F');
+            yPos += 10;
+        });
+
+        yPos += 10;
+        doc.setFontSize(16);
+        doc.text('Carreras Recomendadas:', 10, yPos);
+        yPos += 10;
+        carreras.forEach((carrera, index) => {
+            doc.text(`${index + 1}. ${carrera.nombre} - ${carrera.area}`, 15, yPos);
+            yPos += 10;
+        });
+
+        return doc.output('blob');
+    };
+
     return (
         <div>
             <header>
@@ -178,7 +162,7 @@ function TestPage() {
                 ))}
             </nav>
             <h2 className="tituloTest">Test</h2>
-            <p className="cajaAdvertencia">Ten presente que no es una evaluación, es una herramienta para que explores tus habilidades, responde tranquilamente. Si necesitas informacion para responder, ve a nuestra pagina de Fromulario. Responder con honestidad te llevara a un resultado certero. ¡Buena Suerte!</p>
+            <p className="cajaAdvertencia">Ten presente que no es una evaluación, es una herramienta para que explores tus habilidades, responde tranquilamente. Si necesitas información para responder, ve a nuestra página de Formulario. Responder con honestidad te llevará a un resultado certero. ¡Buena Suerte!</p>
 
             <div className="recuadroPreguntas">
                 {Object.keys(preguntas).map((area, index) => (
@@ -208,47 +192,55 @@ function TestPage() {
                 <button className="botonTerminar" onClick={() => { calcularContadores(); limpiarRespuestas(); }}>Terminar</button>
             </div>
             {showPopup && (
-                <div className="popup">
-                    <span className="close" onClick={() => setShowPopup(false)}>&times;</span>
-                    <h2>Resultados</h2>
-                    <div className="Resultados">
-                        {Object.keys(contadores).map((area, index) => (
-                            <div key={index}>
-                                <p>{area}: {contadores[area]}%</p>
-                                <div className="barraDeCarga">
-                                    <div className="progreso" style={{ width: `${contadores[area]}%` }}></div>
-                                </div>
-                            </div>
-                        ))}
+    <div className="popup">
+        <span className="close" onClick={() => setShowPopup(false)}>&times;</span>
+        <h2>Resultados</h2>
+        <div className="Resultados">
+            {Object.keys(contadores).map((area, index) => (
+                <div key={index}>
+                    <p>{area}: {contadores[area]}%</p>
+                    <div className="barraDeCarga">
+                        <div className="progreso" style={{ width: `${contadores[area]}%` }}></div>
                     </div>
-                    <h3>Carreras Recomendadas:</h3>
-                    <ul>
-                      {carreras.map((carrera, index) => (
-                      <li key={index}>{carrera.nombre} - {carrera.area}</li>
-                       ))}
-                    </ul>
-                    <button className="botonDescargarPDF" onClick={() => { 
-                        const pdfBlob = generatePDF(contadores, carreras.map(carrera => ({ nombre: carrera.nombre, area: carrera.area })));
-                        
-                        const link = document.createElement('a');
-                        link.href = window.URL.createObjectURL(pdfBlob);
-                        link.download = 'resultados_test.pdf';
-                        link.click();
-                    }}>
-                        Descargar PDF
-                    </button>
-                    <button className="botonEnviarCorreo" onClick={() => { 
-                        const toEmail = prompt('Ingresa tu correo electrónico:');
-                        const fromName = prompt('Ingresa tu nombre:');
-                        const pdfBlob = generatePDF(contadores, carreras.map(carrera => ({ nombre: carrera.nombre, area: carrera.area })));
-                        sendEmail(pdfBlob, toEmail, fromName);
-                      }}>
-                        Enviar por Correo Electrónico
-                    </button>
-
-
                 </div>
-            )}
+            ))}
+        </div>
+        <h3>Carreras Recomendadas:</h3>
+        <ul>
+            {carreras.map((carrera, index) => (
+                <li key={index}>{carrera.nombre} - {carrera.area}</li>
+            ))}
+        </ul>
+        <button className="botonDescargarPDF" onClick={() => {
+            const pdfBlob = generatePDF(contadores, carreras.map(carrera => ({ nombre: carrera.nombre, area: carrera.area })));
+
+            const link = document.createElement('a');
+            link.href = window.URL.createObjectURL(pdfBlob);
+            link.download = 'resultados_test.pdf';
+            link.click();
+        }}>
+            Descargar PDF
+        </button>
+        <button className="botonEnviarCorreo" onClick={handleEnviarCorreo}>
+            Enviar por Correo Electrónico
+            </button>
+            <input
+            className="inputCorreo"
+            type="email"
+            value={correoDestinatario}
+            onChange={(e) => setCorreoDestinatario(e.target.value)}
+            placeholder="Ingrese su correo electrónico"
+            />
+
+            <button className="botonIrCarreras">
+                <Link to="/carreras" className="linkIrCarreras">
+                    Ir a Carreras
+                </Link>
+            </button>
+
+    </div>
+)}
+
         </div>
     );
 }

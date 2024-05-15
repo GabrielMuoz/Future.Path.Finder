@@ -224,3 +224,58 @@ section label {
 .botonDescargarPDF:hover {
   background-color: #0089a5; 
 }
+
+.botonEnviarCorreo {
+  background-color: #00b5d6;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: monospace;
+  margin-top: 20px;
+}
+
+.botonEnviarCorreo:hover {
+  background-color: #0089a5;
+}
+
+.inputCorreo {
+  margin-top: 20px;
+  padding: 10px;
+  width: calc(100% - 20px);
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  font-family: monospace;
+}
+
+.botonIrCarreras {
+  background-color: #00b5d6;
+  color: blue; 
+  font-weight: bold;
+  font-size: 20px;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: monospace;
+  margin-top: 20px;
+  text-decoration: none; 
+}
+
+.botonIrCarreras:hover,
+.botonIrCarreras:hover::after {
+  background-color: #0089a5;
+}
+
+.botonIrCarreras::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: transparent; 
+}
+
