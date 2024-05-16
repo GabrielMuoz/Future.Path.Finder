@@ -5,6 +5,13 @@ const cors = require('cors');
 const nodemailer = require('nodemailer');
 const smtpTransport = require('nodemailer-smtp-transport');
 
+require('dotenv').config();
+const clientId = process.env.GOOGLE_CLIENT_ID;
+const clientSecret = process.env.GOOGLE_CLIENT_SECRET;
+const refreshToken = process.env.GOOGLE_REFRESH_TOKEN;
+
+
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -90,10 +97,10 @@ app.post('/api/enviar-correo', upload.single('pdf'), async (req, res) => {
     auth: {
         type: 'OAuth2',
         user: 'futurepathfinder161@gmail.com',
-        clientId: '751964465062-bd6icuojps5tg011cmblqj2391s02494.apps.googleusercontent.com',
-        clientSecret: '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',
-        refreshToken: '1//048izvbjz8BjuCgYIARAAGAQSNwF-L9Ir4VvIQgYkXFl_IMqsDKLHXLPmMhyV2k1TY4AG0ErDsUeh3moRXJ2VsOsiMyy12SheL_4',
-        accessToken: 'tu_token_de_acceso', // Este campo es opcional
+        clientId: clientId,
+        clientSecret: clientSecret,
+        refreshToken: refreshToken,
+        accessToken: '', 
     }
   }));
 
