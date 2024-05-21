@@ -179,7 +179,7 @@ function TestPage() {
                                                 name={`p${indexPregunta}`}
                                                 onChange={() => handleRespuesta(area, indexPregunta, i)}
                                                 checked={respuestas[`${area}-${indexPregunta}`] === i}
-                                            /> {opcion.texto} {opcion.correcta ? '(Correcta)' : ''}
+                                            /> {opcion.texto} {opcion.correcta ? '' : ''}
                                         </label>
                                     ))}
                                 </section>
