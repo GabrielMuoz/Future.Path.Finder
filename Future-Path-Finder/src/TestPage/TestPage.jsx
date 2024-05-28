@@ -25,6 +25,8 @@ function TestPage() {
     const [contadores, setContadores] = useState({});
     const [showPopup, setShowPopup] = useState(false);
     const [correoDestinatario, setCorreoDestinatario] = useState('');
+    const [menuOpen, setMenuOpen] = useState(false); // Estado para el menú
+    const [emailSent, setEmailSent] = useState(false); // Estado para el mensaje de correo enviado
 
     useEffect(() => {
         const storedAnswers = JSON.parse(localStorage.getItem('respuestas'));
@@ -111,6 +113,8 @@ function TestPage() {
                 }
             });
             console.log('Correo enviado correctamente');
+            setEmailSent(true); // Mostrar mensaje de éxito
+            setTimeout(() => setEmailSent(false), 5000); // Ocultar mensaje después de 5 segundos
         } catch (error) {
             console.error('Error al enviar el correo:', error);
         }
@@ -148,9 +152,14 @@ function TestPage() {
                 <h1>Future Path Finder</h1>
             </header>
             <nav>
-                {links.map((y, index) => (
-                    <Link key={index} to={y.href} className="linkBarra">{y.name}</Link>
-                ))}
+                <button className="menuButton" onClick={() => setMenuOpen(!menuOpen)}>☰</button>
+                <ul className={menuOpen ? 'menuOpen' : ''}>
+                    {links.map((link, index) => (
+                        <li key={index}>
+                            <Link to={link.href} className="linkBarra">{link.name}</Link>
+                        </li>
+                    ))}
+                </ul>
             </nav>
             <h2 className="tituloTest">Test</h2>
             <p className="cajaAdvertencia">Ten presente que no es una evaluación, es una herramienta para que explores tus habilidades, responde tranquilamente. Si necesitas información para responder, ve a nuestra página de Formulario. Responder con honestidad te llevará a un resultado certero. ¡Buena Suerte!</p>
@@ -195,6 +204,9 @@ function TestPage() {
                             </div>
                         ))}
                     </div>
+                    {emailSent && (
+                        <p className="mensajeExito">Correo enviado correctamente.</p>
+                    )}
                     <button className="botonDescargarPDF" onClick={() => {
                         const pdfBlob = generatePDF(contadores);
 

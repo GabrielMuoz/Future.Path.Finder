@@ -10,7 +10,7 @@ function HomePage() {
       <nav className="navigation">
         <Link to="/carreras" className="nav-link">Carreras</Link>
         <Link to="/test" className="nav-link">Test</Link>
-        <Link to="/formulario" className="nav-link">Formulario</Link>
+        <Link to="/" className="nav-link">Inicio</Link>
       </nav>
       <div className="formulas-container">
         <FormulasFisica />

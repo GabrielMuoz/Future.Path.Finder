@@ -1,35 +1,92 @@
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  background-color: #f2f2f2;
+  padding: 20px 0;
+  text-align: center;
+}
+
+nav {
+  background-color: #ddd;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 20px;
+}
+
+nav ul.menuOpen {
+  flex-direction: column;
+  position: absolute;
+  top: 50px;
+  left: 0;
+  width: 100%;
+  background-color: #ddd;
+  display: block;
+}
+
+.menuButton {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.linkBarra {
+  color: #00b5d6;
+  text-decoration: none;
+  font-size: 20px;
+  display: inline-block;
+  padding: 15px 30px;
+}
+
+
 .tituloTest,
 .cajaAdvertencia {
   padding: 20px;
-  background-color: #4293bf; /* Color de fondo azul */
-  border-radius: 10px; /* Bordes redondeados */
-  box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.2); /* Sombra ligera */
-  margin-bottom: 20px; /* Espacio debajo de la sección */
-  text-align: justify; /* Texto justificado */
-  max-width: 600px; /* Ancho máximo reducido */
-  margin-left: auto; /* Centra el elemento */
-  margin-right: auto; /* Centra el elemento */
-}
-
-.tituloTest,
-.cajaAdvertencia {
-  text-align: center; /* Centra el texto */
-  font-size: 1.5em; /* Aumenta el tamaño del texto */
+  background-color: #4293bf; 
+  border-radius: 10px; 
+  box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.2); 
+  margin-bottom: 20px; 
+  text-align: center;
+  font-size: 1.5em; 
+  max-width: 600px; 
+  margin-left: auto;
+  margin-right: auto; 
 }
 
 .recuadroPreguntas {
-  background-color: #d1def6; /* Color de fondo más claro */
-  padding: 30px; /* Aumenta el padding */
+  background-color: #d1def6; 
+  padding: 30px; 
   margin: 20px auto;
   width: calc(100% - 40px); 
   max-width: 700px;
   text-align: center;
-  border-radius: 15px; /* Bordes más redondeados */
-  font-family: monospace; /* Mantén la fuente monospace */
-  box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.2); /* Sombra ligera */
-  line-height: 1.6; /* Espaciado de línea para mejorar la legibilidad */
-  color: #333; /* Color de texto oscuro para mejorar el contraste */
-  border: 5px solid #67b6e0; /* Borde ancho y de color #67b6e0 */
+  border-radius: 15px; 
+  font-family: monospace; 
+  box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.2); 
+  line-height: 1.6; 
+  color: #333; 
+  border: 5px solid #67b6e0;
 }
 
 input[type="radio"] {
@@ -63,68 +120,10 @@ section {
   text-align: center;
 }
 
-
-header {
-  background-color: #f2f2f2;
-  padding: 20px 0;
-  text-align: center;
-}
-
-.tituloTest {
-  text-align: center;
-  font-family: monospace;
-  font-size: 40px;
-}
-
-.cajaAdvertencia {
-  text-align: center;
-  font-family: monospace;
-  font-size: 20px;
-}
-
-
-nav {
-  background-color: #ddd;
-  height: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-nav ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-nav ul li {
-  display: inline;
-  margin-right: 20px;
-}
-
-.linkBarra {
-  color: #00b5d6;
-  text-decoration: none;
-  font-size: 20px;
-  display: inline-block;
-  padding: 15px 30px;
-}
-
-.linkTest {
-  color: #3a4972;
-  text-decoration: none;
-  font-size: 25px;
-  display: inline-block;
-  padding: 15px 50px;
-  background-color: #adb2c1;
-  border-radius: 5px;
-}
-
-section label {
-  color: #00b5d6; 
-}
-
-.botonTerminar {
+.botonTerminar,
+.botonDescargarPDF,
+.botonEnviarCorreo,
+.botonIrCarreras {
   background-color: #00b5d6; 
   color: white; 
   font-weight: bold; 
@@ -134,9 +133,29 @@ section label {
   border-radius: 10px; 
   cursor: pointer; 
   font-family: monospace;
+  margin-top: 20px;
 }
 
-/* Estilos para la ventana emergente */
+.botonDescargarPDF:hover,
+.botonEnviarCorreo:hover,
+.botonIrCarreras:hover {
+  background-color: #0089a5;
+}
+
+.botonIrCarreras {
+  text-decoration: none;
+}
+
+.inputCorreo {
+  margin-top: 20px;
+  padding: 10px;
+  width: calc(100% - 20px);
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  font-family: monospace;
+}
+
 .popup {
   position: fixed;
   top: 50%;
@@ -152,10 +171,12 @@ section label {
   font-family: monospace;
   text-align: center; 
   overflow-y: auto; 
+  border-radius: 10px;
 }
 
 .popup h2 {
   margin-top: 0;
+  font-size: 24px;
 }
 
 .popup .close {
@@ -163,6 +184,7 @@ section label {
   top: 10px;
   right: 10px;
   cursor: pointer;
+  font-size: 18px;
 }
 
 .popup .close:hover {
@@ -175,6 +197,7 @@ section label {
 
 .popup .Resultados p {
   font-family: monospace;
+  font-size: 16px;
 }
 
 .barraDeCarga {
@@ -193,89 +216,81 @@ section label {
   transition: width 0.5s ease-in-out;
 }
 
-
-.popup .carrera {
-  margin-bottom: 10px;
-}
-
-.popup .carrera p {
-  margin: 0;
-  font-family: monospace;
-  color: #333; 
-}
-
-.popup .carrera p:first-child {
+.mensajeExito {
+  color: green;
   font-weight: bold;
+  margin-top: 10px;
 }
 
-.botonDescargarPDF {
-  background-color: #00b5d6;
-  color: white;
-  font-weight: bold;
-  font-size: 20px;
-  padding: 15px 30px;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  font-family: monospace;
-  margin-top: 20px; 
-}
+@media (max-width: 768px) {
+  .tituloTest,
+  .cajaAdvertencia,
+  .recuadroPreguntas,
+  .container,
+  .popup {
+      padding: 10px;
+      width: calc(100% - 20px);
+      margin: 10px auto;
+  }
 
-.botonDescargarPDF:hover {
-  background-color: #0089a5; 
-}
+  .linkBarra {
+      font-size: 16px;
+      padding: 10px 20px;
+  }
 
-.botonEnviarCorreo {
-  background-color: #00b5d6;
-  color: white;
-  font-weight: bold;
-  font-size: 20px;
-  padding: 15px 30px;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  font-family: monospace;
-  margin-top: 20px;
-}
+  .botonTerminar,
+  .botonDescargarPDF,
+  .botonEnviarCorreo,
+  .botonIrCarreras {
+      font-size: 16px;
+      padding: 10px 20px;
+      width: 100%;
+      box-sizing: border-box;
+  }
 
-.botonEnviarCorreo:hover {
-  background-color: #0089a5;
-}
+  .inputCorreo {
+      font-size: 14px;
+  }
 
-.inputCorreo {
-  margin-top: 20px;
-  padding: 10px;
-  width: calc(100% - 20px);
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
-  font-family: monospace;
-}
+  nav ul {
+      display: none;
+  }
 
-.botonIrCarreras {
-  background-color: #00b5d6;
-  color: blue; 
-  font-weight: bold;
-  font-size: 20px;
-  padding: 15px 30px;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  font-family: monospace;
-  margin-top: 20px;
-  text-decoration: none; 
-}
+  .menuButton {
+      display: block;
+      position: absolute;
+      left: 20px;
+  }
 
-.botonIrCarreras:hover,
-.botonIrCarreras:hover::after {
-  background-color: #0089a5;
-}
+  nav ul.menuOpen {
+      display: flex;
+  }
 
-.botonIrCarreras::after {
-  content: '';
-  display: block;
-  width: 100%;
-  height: 2px;
-  background-color: transparent; 
-}
+  
+  .popup {
+      padding: 15px;
+      border-radius: 15px;
+  }
 
+  .popup h2 {
+      font-size: 20px;
+  }
+
+  .popup .Resultados p {
+      font-size: 14px;
+  }
+
+  .popup .close {
+      font-size: 16px;
+      top: 5px;
+      right: 5px;
+  }
+
+  .barraDeCarga {
+      height: 15px;
+  }
+
+  .mensajeExito {
+      font-size: 14px;
+  }
+}

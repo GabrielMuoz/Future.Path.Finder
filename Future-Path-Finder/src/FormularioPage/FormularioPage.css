@@ -1,37 +1,35 @@
-/* Estilos para el cuerpo de la página */
 body {
     margin: 0;
     font-family: monospace;
     text-align: center;
 }
 
-/* Estilos para el encabezado */
 header {
     background-color: #f2f2f2;
     padding: 20px 0;
 }
 
-/* Estilos para la barra de navegación */
 nav {
     background-color: #2c3e50;
     height: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
 nav ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
+    display: flex;
 }
 
 nav ul li {
-    display: inline;
     margin-right: 20px;
 }
 
-.linkBarra {
+.nav-link, .linkBarra {
     color: #00b5d6;
     text-decoration: none;
     font-size: 20px;
@@ -39,84 +37,66 @@ nav ul li {
     padding: 15px 30px;
 }
 
-.linkTest {
-    color: #3a4972;
-    text-decoration: none;
-    font-size: 25px;
-    display: inline-block;
-    padding: 15px 50px;
-    background-color: #adb2c1;
-    border-radius: 5px;
+.menuButton {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #fff;
 }
 
-/* Estilos para las secciones */
+@media (max-width: 768px) {
+    nav ul {
+        display: none;
+    }
+
+    .menuButton {
+        display: block;
+    }
+
+    .menuButton.active + ul.menuOpen {
+        display: flex;
+    }
+}
 
 section {
     margin: 40px auto;
     max-width: 800px;
 }
 
-/* Estilos para los cuadros contenedores */
-.formula-box {
-    background-color: #f9f9f9;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    padding: 20px;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.formula-box h2 {
-    color: #333;
-    margin-bottom: 10px;
-}
-
-.formula-box ul {
-    list-style: none;
-    padding: 0;
-}
-
-.formula-box li {
-    margin-bottom: 10px;
-}
-
-/* Estilos para el cuadro de sintaxis de Python */
+.formula-box,
 .python-syntax {
-    background-color: #f9f9f9;
+    flex: 1;
+    background-color: #f2f2f2;
     border: 1px solid #ccc;
     border-radius: 10px;
     padding: 20px;
     margin-bottom: 20px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-sizing: border-box;
 }
 
+.formula-box h2,
 .python-syntax h2 {
-    color: #333;
+    color: #192a56;
     margin-bottom: 10px;
 }
 
+.formula-box ul,
 .python-syntax ul {
     list-style: none;
     padding: 0;
 }
 
+.formula-box li,
 .python-syntax li {
     margin-bottom: 10px;
+    color: #192a56;
 }
 
-/* Estilos para los enlaces en la barra de navegación */
-.nav-link {
-    color: #00b5d6;
-    text-decoration: none;
-    padding: 15px 30px;
-    margin-right: 20px;
-}
-
-
-/* Estilos para el contenedor de fórmulas */
 .formulas-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
     gap: 20px;
 }

@@ -1,49 +1,51 @@
-/* Estilos para CarrerasPage */
-
 .area-title {
-    font-size: 40px; /* tamaño de la fuente */
-    color: #04122c; /* color del texto */
-    font-weight: bold; /* negrita */
-    margin-bottom: 10px; /* espacio debajo del título */
-  }
+    font-size: 40px;
+    color: #04122c;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
 .carreras-area {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Ajusta el número de columnas automáticamente */
-    grid-gap: 20px; /* Espacio entre las áreas */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 20px;
+    padding: 0 10px;
 }
 
 .carrera-box {
     padding: 20px;
     border-radius: 5px;
-    text-align: center; /* Centra el texto dentro del área */
+    text-align: center;
+    margin-bottom: 20px;
+    color: #d3d3d3;
 }
 
 .carrera-box h3 {
-    color: #192a56; /* Color del título */
-    margin-bottom: 10px; /* Espacio entre el título y el texto */
+    color: #d3d3d3;
+    margin-bottom: 10px;
 }
 
 .carrera-box p {
     font-size: 16px;
     line-height: 1.6;
     font-family: monospace;
+    color: #d3d3d3;
 }
 
-/* Colores para las áreas de Carreras */
 .carrera-box:nth-child(odd) {
-    background-color: #aed6f1; /* Azul pastel para las áreas impares */
+    background-color: #4b728b;
 }
 
 .carrera-box:nth-child(even) {
-    background-color: #7fb3d5; /* Azul pastel diferente para las áreas pares */
+    background-color: #7fb3d5;
 }
 
 .carrera-box:nth-child(3n+1) {
-    background-color: #5499c7; /* Azul pastel */
+    background-color: #5499c7;
 }
 
 .carrera-box:nth-child(3n+2) {
-    background-color: #2980b9; /* Azul pastel diferente */
+    background-color: #2980b9;
 }
 
 body {
@@ -59,57 +61,64 @@ header {
 
 nav {
     background-color: #ddd;
-    height: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
+    padding: 10px 0;
 }
 
-/* Estilos para las secciones */
+nav a {
+    margin: 0 10px;
+    color: #04122c;
+    text-decoration: none;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
 section {
     margin: 40px auto;
     max-width: 800px;
 }
 
-/* Estilos para el contenedor del filtro */
 .filter-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-bottom: 20px;
-    position: relative; /* Añade posición relativa para que el menú desplegable se posicione correctamente */
+    position: relative;
 }
 
 .filter-container h2 {
     margin-bottom: 10px;
 }
 
-/* Estilos para el botón de menú */
 .menu-button {
-    font-size: 30px; /* Hace el botón más grande */
-    background-color: #87cefa;
+    font-size: 30px;
+    background-color: #3c7497;
     border: none;
     cursor: pointer;
     color: #192a56;
     font-family: monospace;
 }
 
-/* Estilos para el menú desplegable */
 .dropdown-menu {
     background-color: transparent;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     padding: 12px 16px;
     position: absolute;
-    left: 50%; /* Alinea el menú desplegable en el centro del contenedor padre */
-    transform: translateX(-50%); /* Corrige la posición del menú desplegable para que esté centrado */
+    left: 50%;
+    transform: translateX(-50%);
     z-index: 1;
-    width: 200px; /* Define el ancho del menú desplegable */
+    width: 200px;
 }
 
 .dropdown-item {
     display: block;
     width: 100%;
-    padding: 30px; /* Hace los elementos del menú más grandes */
+    padding: 30px;
     background-color: #00b5d6;
     color: #192a56;
     cursor: pointer;
@@ -120,10 +129,65 @@ section {
 }
 
 .dropdown-item:nth-child(odd) {
-    background-color: #add8e6; /* Color azul claro para las áreas impares */
+    background-color: #37bce8;
 }
 
 .dropdown-item:nth-child(even) {
-    background-color: #87cefa
+    background-color: #134665;
 }
 
+@media (max-width: 768px) {
+    .area-title {
+        font-size: 30px;
+    }
+
+    .menu-button {
+        font-size: 25px;
+    }
+
+    .dropdown-item {
+        padding: 20px;
+    }
+
+    nav {
+        flex-direction: column;
+        padding: 10px 0;
+    }
+
+    nav a {
+        margin: 5px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .area-title {
+        font-size: 24px;
+    }
+
+    .menu-button {
+        font-size: 20px;
+    }
+
+    .dropdown-item {
+        padding: 15px;
+    }
+
+    .carreras-area {
+        grid-template-columns: 1fr;
+        grid-gap: 10px;
+    }
+
+    section {
+        margin: 20px auto;
+        padding: 0 10px;
+    }
+
+    nav {
+        flex-direction: column;
+        padding: 10px 0;
+    }
+
+    nav a {
+        margin: 5px 0;
+    }
+}

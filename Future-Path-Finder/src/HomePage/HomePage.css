@@ -1,18 +1,14 @@
-/* Estilos para el cuerpo de la página */
 body {
     margin: 0;
     font-family: monospace;
     text-align: center;
 }
 
-/* Estilos para el encabezado */
 header {
     background-color: #f2f2f2;
     padding: 20px 0;
-    
 }
 
-/* Estilos para la barra de navegación */
 nav {
     background-color: #2c3e50;
     height: 50px;
@@ -21,100 +17,91 @@ nav {
     align-items: center;
 }
 
-/* Estilos para la sección Future Path Finder */
 #que-es-future-path-finder {
     padding: 20px;
-    background-color: #67b6e0; /* Color de fondo azul */
-    border-radius: 10px; /* Bordes redondeados */
-    box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.2); /* Sombra ligera */
-    margin-bottom: 20px; /* Espacio debajo de la sección */
-    text-align: justify; /* Texto justificado */
-  }
-  
-  #que-es-future-path-finder h2,
-  #que-es-future-path-finder p {
-    text-align: center; /* Centra el texto */
-    font-size: 1.5em; /* Aumenta el tamaño del texto */
-  }
-
-/* Estilos para las secciones */
-section {
-    margin: 80px auto;
-    max-width: 800px;
-    font-family: monospace;
-    font-size: large;
+    background-color: #67b6e0;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.2);
+    margin-bottom: 20px;
+    text-align: justify;
 }
 
-/* Estilos para el contenedor de áreas STEM */
+#que-es-future-path-finder h2,
+#que-es-future-path-finder p {
+    text-align: center;
+    font-size: 1.5em;
+}
+
+section {
+    margin: 20px auto;
+    max-width: 800px;
+}
+
 .contenedor-areas-stem {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Dos columnas */
-    grid-gap: 20px; /* Espacio entre las áreas */
-    font-family: monospace;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 20px;
 }
 
-/* Estilos para cada área STEM */
 .area-stem {
     padding: 20px;
     border-radius: 5px;
-    text-align: center; /* Centra el texto dentro del área */
-    font-family: monospace;
+    text-align: center;
 }
 
-/* Estilos para el icono de cada área STEM */
 .area-stem i {
-    font-size: 40px; /* Tamaño del icono */
-    margin-bottom: 15px; /* Espacio entre el icono y el texto */
-    font-family: monospace;
+    font-size: 40px;
+    margin-bottom: 15px;
 }
 
-/* Estilos para el título de cada área STEM */
 .area-stem h3 {
-    color: #192a56; /* Color del título */
-    margin-bottom: 10px; /* Espacio entre el título y el texto */
-    font-family: monospace;
+    color: #192a56;
+    margin-bottom: 10px;
 }
 
-/* Estilos para la descripción de cada área STEM */
 .area-stem p {
     font-size: 16px;
     line-height: 1.6;
-    font-family: monospace;
 }
 
-/* Colores para las áreas STEM */
 .area-stem-ciencia {
-    background-color: #aed6f1; /* Azul pastel */
+    background-color: #aed6f1;
 }
 
 .area-stem-tecnologia {
-    background-color: #7fb3d5; /* Azul pastel */
+    background-color: #7fb3d5;
 }
 
 .area-stem-ingenieria {
-    background-color: #5499c7; /* Azul pastel */
+    background-color: #5499c7;
 }
 
 .area-stem-matematicas {
-    background-color: #2980b9; /* Azul pastel */
+    background-color: #2980b9;
 }
 
-/* Estilos para los enlaces en la barra de navegación */
 .linkBarra {
     color: #00b5d6;
     text-decoration: none;
-    padding: 15px 30px;
+    padding: 10px 20px;
     margin-right: 20px;
 }
-/*
+
 .linkTest {
-  background-color: #00b5d6; 
-  color: white; 
-  font-weight: bold; 
-  font-size: 20px; 
-  padding: 15px 30px; 
-  border: none; 
-  border-radius: 10px; 
-  cursor: pointer; 
-  font-family: monospace;
-  }
+    background-color: #00b5d6; 
+    color: white; 
+    font-weight: bold; 
+    font-size: 20px; 
+    padding: 15px 30px; 
+    border: none; 
+    border-radius: 10px; 
+    cursor: pointer; 
+    font-family: monospace;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+    section {
+        margin: 10px auto;
+    }
+}
