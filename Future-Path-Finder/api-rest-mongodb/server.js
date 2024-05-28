@@ -51,7 +51,6 @@ const preguntaSchema = new mongoose.Schema({
 
 
 const Pregunta = mongoose.model('Pregunta', preguntaSchema, 'test');
-const Carrera = mongoose.model('Carrera', carreraSchema, 'carreras'); 
 
 app.get('/api/carreras', async (req, res) => {
   try {
