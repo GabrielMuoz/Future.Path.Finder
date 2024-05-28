@@ -25,7 +25,6 @@ function TestPage() {
     const [contadores, setContadores] = useState({});
     const [showPopup, setShowPopup] = useState(false);
     const [correoDestinatario, setCorreoDestinatario] = useState('');
-    const [carrerasSeleccionadas, setCarrerasSeleccionadas] = useState([]);
 
     useEffect(() => {
         const storedAnswers = JSON.parse(localStorage.getItem('respuestas'));
@@ -100,16 +99,6 @@ function TestPage() {
         setShowPopup(true);
     };
 
-    const handleCalcularContadores = async () => {
-        try {
-            await calcularContadores(); // Esto debería obtener las carreras seleccionadas
-            const response = await axios.get('http://localhost:3000/api/test');
-            setCarrerasSeleccionadas(response.data); // Actualizar el estado de las carreras seleccionadas
-        } catch (error) {
-            console.error('Error al obtener las carreras seleccionadas:', error);
-        }
-    };
-
     const enviarCorreo = async (pdfBlob) => {
         const formData = new FormData();
         formData.append('pdf', pdfBlob, 'Resultados_Test.pdf');
@@ -152,8 +141,6 @@ function TestPage() {
         });
         return doc.output('blob');
     };
-
-
 
     return (
         <div>
@@ -207,12 +194,6 @@ function TestPage() {
                                 </div>
                             </div>
                         ))}
-                            <h2>Carreras Seleccionadas</h2>
-                            <ul>
-                                {carrerasSeleccionadas.map((carrera, index) => (
-                                    <li key={index}>{carrera.nombre}</li>
-                                ))}
-                            </ul>
                     </div>
                     <button className="botonDescargarPDF" onClick={() => {
                         const pdfBlob = generatePDF(contadores);

@@ -48,6 +48,8 @@ const preguntaSchema = new mongoose.Schema({
   area: String
 });
 
+
+
 const Pregunta = mongoose.model('Pregunta', preguntaSchema, 'test');
 const Carrera = mongoose.model('Carrera', carreraSchema, 'carreras'); 
 
