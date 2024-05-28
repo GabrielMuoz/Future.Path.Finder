@@ -48,12 +48,6 @@ const preguntaSchema = new mongoose.Schema({
   area: String
 });
 
-const carreraSchema = new mongoose.Schema({
-  // Define los campos de tu documento de Carrera
-  nombre: String,
-  // etc...
-});
-
 const Pregunta = mongoose.model('Pregunta', preguntaSchema, 'test');
 const Carrera = mongoose.model('Carrera', carreraSchema, 'carreras'); 
 
